@@ -1,12 +1,20 @@
 import { useState } from 'react'
+import Lasons from './conponents/lessons/lessons'
+import { Route, Routes } from "react-router-dom";
 
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <h1>start</h1>
+
+    <main>
+      <Routes>
+        <Route path="/" element={<Lasons></Lasons>} />
+        <Route path="/" element={<Lasons></Lasons>} />
+
+      </Routes>
+    </main>
+
   )
 }
 
-export default App
+
