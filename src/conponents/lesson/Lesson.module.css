@@ -1,4 +1,4 @@
-.items {
+.gamesList {
     display: flex;
     flex-wrap: wrap
 }
@@ -11,4 +11,13 @@
     border: 5px solid aliceblue;
     border-radius: 10px;
     cursor: pointer;
+ 
+}
+
+.gamesList {
+    gap: 5%;
+}
+
+.item {
+    display: block;
 }

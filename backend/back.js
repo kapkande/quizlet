@@ -1,41 +1,54 @@
 import jsonServer from 'json-server';
 const db = {
     accounts: [{
-            "name": "asd",
+        "name": "asd",
+        "password": "asd",
+        'id': 1,
+    },
+    {
+        "name": "ExampleName1",
+        "password": "ExamplePassword1",
+        'id': 2,
+    },
+    ],
+    lessons: [
+        {
+            'id': 'b1_1',
+            'data': [
+                [`mother tongue`, `a language that a person has learned from birth or the first few years of life`],
+                [`learning strategy`, `intentional use of one or more cognitive processes for a particular learning task`],
+                [`foreign`, `belonging to, situated in, or derived from another country.`],
+                [`native speaker`, `a person who has spoken a particular language since early childhood`],
+                [`slang `, `an informal, often short-lived kind of language used in place of standard words`],
+                [`jargon`, `vocabulary distinctive to a particular group of people`],
+                [`fluency`, `the ability to accurately read and speak with speed and expression`],
+                [`accuracy`, `the quality or state of being correct or precise.`],
+                [`bilingualable`, `to speak two different languages`],
+            ]
+
+        },
+        {
+            'id': 'b1_2',
+            'data': [
+                [`mother tongue`, `a language that a person has learned from birth or the first few years of life`],
+                [`learning strategy`, `intentional use of one or more cognitive processes for a particular learning task`],
+            ]
+
+        }
+
+    ],
+    accounts: [
+        {
+            "name": "ExampleName1",
             "password": "asd",
             'id': 1,
         },
         {
-            "name": "ExampleName1",
+            "name": "ExampleNam15e1",
             "password": "ExamplePassword1",
-            'id': 2,
+            'id': 'ExampleName1',
         },
     ],
-    lessons: {
-        b1_1: [
-            { term: 'mother tongue', definition: 'a language that a person has learned from birth or the first few years of life' },
-            { term: 'learning strategy', definition: 'intentional use of one or more cognitive processes for a particular learning task' },
-            { term: 'foreign', definition: 'belonging to, situated in, or derived from another country.' },
-            { term: 'native speaker', definition: 'a person who has spoken a particular language since early childhood' },
-            { term: 'slang', definition: 'an informal, often short-lived kind of language used in place of standard words' },
-            { term: 'jargon', definition: 'vocabulary distinctive to a particular group of people' },
-            { term: 'fluency', definition: 'the ability to accurately read and speak with speed and expression' },
-            { term: 'accuracy', definition: 'the quality or state of being correct or precise.' },
-            { term: 'bilingualable', definition: 'to speak two different languages' }
-        ],
-        b1_2: [
-            { term: 'mother tongue', definition: 'a language that a person has learned from birth or the first few years of life' },
-            { term: 'learning strategy', definition: 'intentional use of one or more cognitive processes for a particular learning task' },
-            { term: 'foreign', definition: 'belonging to, situated in, or derived from another country.' },
-            { term: 'native speaker', definition: 'a person who has spoken a particular language since early childhood' },
-            { term: 'slang', definition: 'an informal, often short-lived kind of language used in place of standard words' },
-            { term: 'jargon', definition: 'vocabulary distinctive to a particular group of people' },
-            { term: 'fluency', definition: 'the ability to accurately read and speak with speed and expression' },
-            { term: 'accuracy', definition: 'the quality or state of being correct or precise.' },
-            { term: 'bilingualable', definition: 'to speak two different languages' }
-        ],
-
-    }
 };
 
 const server = jsonServer.create();
