@@ -43,3 +43,11 @@
     overflow: hidden;
     width: 518px;
 }
+@media (max-width: 650px) {
+    .item {
+        width: 200px;
+    }
+    .gameblock {
+        flex-direction: column;
+    }
+}

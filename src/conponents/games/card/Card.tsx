@@ -41,10 +41,10 @@ export default function Card() {
                     </button>
                     <div onClick={() => setTermActive(pr => !pr)} className={styles.cardBlock}>
                         <div className={`${styles.item}`}>
-                            {termActive &&
+                            {!termActive &&
                                 <div className={`${styles.term} `}>{arreyItem[elementActive][0]}</div>
                             }
-                            {!termActive &&
+                            {termActive &&
                                 <div className={`${styles.description}`}>{arreyItem[elementActive][1]}</div>
                             }
                         </div>

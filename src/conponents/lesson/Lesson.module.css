@@ -11,7 +11,7 @@
     border: 5px solid aliceblue;
     border-radius: 10px;
     cursor: pointer;
- 
+
 }
 
 .gamesList {
@@ -20,4 +20,10 @@
 
 .item {
     display: block;
+}
+
+@media (max-width: 650px) {
+    .item {
+        width: 200px;
+    }
 }
