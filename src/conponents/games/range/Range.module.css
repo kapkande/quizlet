@@ -1,0 +1,39 @@
+.range {
+    display: flex;
+    animation: stick 1s linear forwards;
+}
+
+.stick {
+    flex: 1 1 0px;
+    height: 2px;
+    background-color: aliceblue;
+}
+
+.stickActive {
+    animation: anim 1s linear forwards;
+    background-color: rgb(47, 87, 122);
+}
+
+@keyframes anim {
+    50% {
+        opacity: 0;
+        background-color: aliceblue;
+    }
+
+    100% {
+        opacity: 1;
+        background-color: rgb(47, 87, 122);
+    }
+}
+
+
+
+@keyframes stick {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}

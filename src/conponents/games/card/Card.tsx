@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import { useLesson } from "../../hucsk/useLesson";
 import styles from './card.module.css'
 import { useState } from 'react'
+import Range from "../range/Range";
 
 
 export default function Card() {
@@ -9,7 +10,7 @@ export default function Card() {
     const search = useLocation().search.split('?')[1];
     const { lesson, loading, error } = useLesson(search)
     const [termActive, setTermActive] = useState(true);
-    const [elementActive, setelementActive] = useState(0);
+    const [indexActive, setindexActive] = useState(0);
 
     // if (Object.keys(lesson).length < 1){return}
 
@@ -21,15 +22,17 @@ export default function Card() {
     }
     if (!lesson.data) { return }
     const arreyItem = lesson.data;
+    console.log(indexActive);
 
     function handlerClick(i: number) {
-        setelementActive((p) => {
+        setindexActive((p) => {
             if (p + i > arreyItem.length - 1 || p + i < 0) { return p }
             return p + i
         })
     }
     return (
         <div className={styles.card}>
+            <Range arreyItem={arreyItem} indexActive={indexActive}></Range>
             <div className={styles.wrap}>
                 <h1 className={styles.title}>{lesson.id}</h1>
                 <div className={styles.gameblock}>
@@ -42,10 +45,10 @@ export default function Card() {
                     <div onClick={() => setTermActive(pr => !pr)} className={styles.cardBlock}>
                         <div className={`${styles.item}`}>
                             {!termActive &&
-                                <div className={`${styles.term} `}>{arreyItem[elementActive][0]}</div>
+                                <div className={`${styles.term} `}>{arreyItem[indexActive][0]}</div>
                             }
                             {termActive &&
-                                <div className={`${styles.description}`}>{arreyItem[elementActive][1]}</div>
+                                <div className={`${styles.description}`}>{arreyItem[indexActive][1]}</div>
                             }
                         </div>
                     </div>

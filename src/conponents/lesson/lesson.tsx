@@ -28,7 +28,7 @@ export default function Lesson() {
                 </li>
                 <li>
                     <Link to={{
-                        pathname: "/learning",
+                        pathname: "/learningL1",
                         search: search
                     }}
                         className={styles.item}>
