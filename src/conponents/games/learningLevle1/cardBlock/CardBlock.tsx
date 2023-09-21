@@ -1,5 +1,4 @@
 
-import { useState } from 'react';
 import styles from '../learning.module.css';
 export default function CardBlock({ arreyItem, indexActive, setTermActive, termActive, setIndexExsept }: any) {
 

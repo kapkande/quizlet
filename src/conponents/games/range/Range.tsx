@@ -5,6 +5,7 @@ if (arreyItem.length >  indexActive){return}
     return (
         <div className={styles.range}>
             {arreyItem.map((e: string[], i: number) => {
+                console.log(e);
                 return (
                     <div
                         key={i}
