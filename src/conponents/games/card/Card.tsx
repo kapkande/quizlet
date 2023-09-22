@@ -12,8 +12,6 @@ export default function Card() {
     const [termActive, setTermActive] = useState(true);
     const [indexActive, setindexActive] = useState(0);
 
-    // if (Object.keys(lesson).length < 1){return}
-
     if (loading) {
         return (<h1>loading...</h1>)
     }
@@ -22,7 +20,6 @@ export default function Card() {
     }
     if (!lesson.data) { return }
     const arreyItem = lesson.data;
-    console.log(indexActive);
 
     function handlerClick(i: number) {
         setindexActive((p) => {
@@ -42,14 +39,10 @@ export default function Card() {
                         }
                         className={styles.button}>
                     </button>
-                    <div onClick={() => setTermActive(pr => !pr)} className={styles.cardBlock}>
-                        <div className={`${styles.item}`}>
-                            {!termActive &&
-                                <div className={`${styles.term} `}>{arreyItem[indexActive][0]}</div>
-                            }
-                            {termActive &&
-                                <div className={`${styles.description}`}>{arreyItem[indexActive][1]}</div>
-                            }
+                    <div onClick={() => setTermActive(pr => !pr)} className={`${styles.cardBlock} `}>
+                        <div className={`${styles.item} ${!termActive ? styles.itemActive : ''}`}>
+                            <div className={`${styles.term}`}>{arreyItem[indexActive][0]}</div>
+                            <div className={`${styles.description}`}>{arreyItem[indexActive][1]}</div>
                         </div>
                     </div>
                     <button

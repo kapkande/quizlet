@@ -1,6 +1,5 @@
 .item {
     background-color: rgb(12, 47, 61);
-
     height: 250px;
     margin: 2%;
     text-align: center;
@@ -12,15 +11,38 @@
     justify-content: center;
     box-sizing: border-box;
     flex: 1 0 500px;
+    perspective: 1000;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.itemActive {
+    transform: rotateX(180deg);
+}
+
+.itemActive .term {
+    opacity: 1
+}
+
+.itemActive .description {
+    opacity: 0
 }
 
 .term {
     font-size: 32px;
+    transform: rotateX(180deg);
+    opacity: 0;
 }
 
 .description {
     font-size: 26px;
 }
+
+.term,
+.description {
+    position: absolute;
+}
+
 
 .button {
     width: 50px;
@@ -43,4 +65,3 @@
     overflow: hidden;
     width: 518px;
 }
-

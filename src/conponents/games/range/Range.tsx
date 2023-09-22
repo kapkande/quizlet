@@ -1,11 +1,11 @@
 import styles from './Range.module.css'
 export default function Range({ arreyItem, indexActive }: any) {
-console.log(arreyItem.length +' ' +indexActive);
-if (arreyItem.length >  indexActive){return}
+    // console.log(arreyItem.length +' ' +indexActive);
+    if (arreyItem.length < indexActive) { return }
     return (
         <div className={styles.range}>
             {arreyItem.map((e: string[], i: number) => {
-                console.log(e);
+            console.log(e.length);
                 return (
                     <div
                         key={i}

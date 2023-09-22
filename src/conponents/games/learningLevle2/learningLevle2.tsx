@@ -35,7 +35,7 @@ export default function Learning() {
         // console.log(inputValue +'   '+ carentValue);
         if (carentValue === inputValue){alert('ok')}
       }
-
+console.log(arreyItem);
     return (
         <div className={styles.learning}>
             <Range arreyItem={arreyItem} indexActive={indexActive}></Range>
