@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useLesson } from "../../hucsk/useLesson";
 import styles from './learning.module.css';
 import { useState } from "react";
@@ -8,8 +8,7 @@ import CardBlock from "./cardBlock/CardBlock";
 
 export default function Learning() {
 
-    const search = useLocation().search.split('?')[1];
-    const { lesson, loading, error } = useLesson(search);
+    const { lesson, loading, error } = useLesson();
     const [termActive, setTermActive] = useState(false);
     const [indexActive, setIndexActive] = useState(0);
     const [indexExsept, setIndexExsept] = useState([-1])
@@ -23,9 +22,6 @@ export default function Learning() {
     }
     if (!lesson.data) { return }
     const arreyItem = lesson.data;
-
-
-
 
     function handlerButtonClick() {
         console.log(indexExsept  );
@@ -50,7 +46,7 @@ export default function Learning() {
         <div className={styles.learning}>
             <Range arreyItem={arreyItem} indexActive={indexActive}></Range>
             <div className={styles.wrap}>
-                <h1 className={styles.title}>{lesson.id}</h1>
+                <h1 className={styles.title}>{lesson.name}</h1>
                 <div className={styles.gameblock}>
                     <CardBlock
                         arreyItem={arreyItem}
@@ -64,7 +60,7 @@ export default function Learning() {
                     {activeButtonNext &&
                         <Link to={{
                             pathname: "/learningL2",
-                            search: search
+                            search: `id=${String(lesson.id)}`
                         }}
                             className={styles.button}>
                             <h1 className={styles.name}>next leavel</h1>

@@ -7,8 +7,7 @@ import Range from "../range/Range";
 
 export default function Learning() {
     const [inputValue, setInputValue] = useState("");
-    const search = useLocation().search.split('?')[1];
-    const { lesson, loading, error } = useLesson(search);
+    const { lesson, loading, error } = useLesson();
     const [termActive, setTermActive] = useState(true);
     const [indexActive, setindexActive] = useState(0);
     const [carentValue, setCarentValue] = useState("");
@@ -33,9 +32,9 @@ export default function Learning() {
         e.preventDefault();
         setInputValue('')
         // console.log(inputValue +'   '+ carentValue);
-        if (carentValue === inputValue){alert('ok')}
-      }
-console.log(arreyItem);
+        if (carentValue === inputValue) { alert('ok') }
+    }
+    console.log(arreyItem);
     return (
         <div className={styles.learning}>
             <Range arreyItem={arreyItem} indexActive={indexActive}></Range>
@@ -49,7 +48,7 @@ console.log(arreyItem);
                         className={styles.button}>
                     </button>
                     <div onClick={() => setTermActive(pr => !pr)} className={styles.cardBlock}>
-                        
+
                         <div className={`${styles.item}`}>
                             {!termActive &&
                                 <div className={`${styles.term} `}>{arreyItem[indexActive][0]}</div>
@@ -67,7 +66,7 @@ console.log(arreyItem);
                     </button>
                 </div>
                 <form onSubmit={handleInputChange}>
-                    <input type="text" value={inputValue} onChange={(e) => { setCarentValue(arreyItem[indexActive][0]) , setInputValue(e.target.value)  }} />
+                    <input type="text" value={inputValue} onChange={(e) => { setCarentValue(arreyItem[indexActive][0]), setInputValue(e.target.value) }} />
                     <button type="submit">Submit</button>
                 </form>
             </div>

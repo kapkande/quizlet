@@ -1,0 +1,1 @@
+export const linkInBack = 'http://localhost:3500'

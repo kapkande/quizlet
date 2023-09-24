@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+
 import { useLesson } from "../../hucsk/useLesson";
 import styles from './card.module.css'
 import { useState } from 'react'
@@ -6,9 +6,7 @@ import Range from "../range/Range";
 
 
 export default function Card() {
-
-    const search = useLocation().search.split('?')[1];
-    const { lesson, loading, error } = useLesson(search)
+    const { lesson, loading, error } = useLesson()
     const [termActive, setTermActive] = useState(true);
     const [indexActive, setindexActive] = useState(0);
 
@@ -31,7 +29,7 @@ export default function Card() {
         <div className={styles.card}>
             <Range arreyItem={arreyItem} indexActive={indexActive}></Range>
             <div className={styles.wrap}>
-                <h1 className={styles.title}>{lesson.id}</h1>
+                <h1 className={styles.title}>{lesson.name}</h1>
                 <div className={styles.gameblock}>
                     <button
                         onClick={
