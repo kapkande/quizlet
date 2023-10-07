@@ -1,4 +1,3 @@
-import { useLocation } from "react-router-dom";
 import { useLesson } from "../../hucsk/useLesson";
 import styles from './learning.module.css';
 import { useState } from 'react';

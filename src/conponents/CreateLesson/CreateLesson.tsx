@@ -4,7 +4,7 @@ import { useState } from "react"
 export default function CreateLesson() {
     const isAdmin = true
     var err = new Error('Not found');
-    if (!isAdmin) { return err }
+    if (!isAdmin) { return err.message  }
     const [showCode, setShowCode] = useState([<CreateInputs i={0}></CreateInputs>]);
 
     const handleButtonClick = (e: any) => {

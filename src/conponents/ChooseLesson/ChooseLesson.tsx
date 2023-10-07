@@ -2,7 +2,6 @@
 import { Link } from 'react-router-dom';
 import { useLessonsNames } from '../hucsk/useLessonsNames'
 import styles from './ChooseLesson.module.css'
-import { useState } from 'react'
 
 export default function ChooseLesson() {
     const { lessonsNames, loading, error } = useLessonsNames();
