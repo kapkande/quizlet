@@ -1,0 +1,67 @@
+.item {
+    background-color: rgb(12, 47, 61);
+    height: 250px;
+    margin: 2%;
+    text-align: center;
+    border: 5px solid aliceblue;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    flex: 1 0 500px;
+    perspective: 1000;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.itemActive {
+    transform: rotateX(180deg);
+}
+
+.itemActive .term {
+    opacity: 1
+}
+
+.itemActive .description {
+    opacity: 0
+}
+
+.term {
+    font-size: 32px;
+    transform: rotateX(180deg);
+    opacity: 0;
+}
+
+.description {
+    font-size: 26px;
+}
+
+.term,
+.description {
+    position: absolute;
+}
+
+
+.button {
+    width: 50px;
+    height: 50px;
+}
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gameblock {
+    display: flex;
+    align-items: center;
+}
+
+.cardBlock {
+    display: flex;
+    overflow: hidden;
+    width: 518px;
+}

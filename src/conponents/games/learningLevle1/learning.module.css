@@ -1,0 +1,49 @@
+.item {
+    background-color: rgb(12, 47, 61);
+    padding: 7px;
+    margin: 2%;
+    text-align: center;
+    border: 2px solid aliceblue;
+    border-radius: 10px;
+}
+
+.term {
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.description {
+    font-size: 26px;
+    flex: 1 1 100%;
+}
+
+.button {
+    width: 50px;
+    height: 50px;
+}
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cardBlock {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 980px;
+    justify-content: center;
+}
+
+
+
+
+@media (max-width: 650px) {
+    .item {
+        width: 200px;
+    }
+
+    .gameblock {
+        flex-direction: column;
+    }
+}
