@@ -12,7 +12,7 @@ export function useLessonsNames () {
     const [loading , setLoading ] = useState(false);
     const [error, setError] = useState('');
 
-    const link:string = `${linkInBack}/dataNames`
+    const link:string = `${linkInBack}/data`
 
     async function fetchProduct() {
         try {
