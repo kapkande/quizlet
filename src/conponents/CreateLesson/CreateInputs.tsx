@@ -1,24 +1,35 @@
-import styles from './Create.module.css';
-interface IKey {
-    i: number
+import { useRef } from 'react';
+
+interface InputBlockProps {
+    id: number;
+    term: string;
+    description: string;
+    onRemove: (id: number) => void;
+    onInputChange: (id: number, term:string, description: string) => void;
 }
 
-export default function CreateInputs({ i }: IKey) {
-    function handleClick(e: any) {
-        e.preventDefault();
-        if (e.target.tagName != "BUTTON") { return }
-        e.currentTarget.remove()
-    }
+export function InputBlock({ id, term, description, onRemove, onInputChange }: InputBlockProps) {
+    const handleRemove = () => {
+        onRemove(id);
+    };
 
+    const handleInputChange = () => {
+        onInputChange(id, String(inputRefTerm.current?.value), String(inputRefDescription.current?.value));
+      };
+      
+      const inputRefTerm = useRef<HTMLInputElement>(null);
+      const inputRefDescription = useRef<HTMLInputElement>(null);
     return (
-        <div onClick={handleClick} key={i}>
+        <div>
             <label>term
-                <input type="text" />
+                <input ref={inputRefTerm} type="text" value={term} onChange={handleInputChange} />
             </label>
             <label>description
-                <input type="text" />
+                <input ref={inputRefDescription} type="text" value={description} onChange={handleInputChange} />
             </label>
-            <button className={styles.button}>-</button>
-        </div >
-    )
-}
+            <button type="button" onClick={handleRemove}>
+                Remove
+            </button>
+        </div>
+    );
+} 

@@ -1,1 +1,1 @@
-export const linkInBack = 'http://bouqeros.online/data/'
+export const linkInBack = 'http://localhost:3500'
