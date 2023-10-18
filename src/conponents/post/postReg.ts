@@ -10,7 +10,7 @@ interface NavProps {
     setLogin: React.Dispatch<React.SetStateAction<boolean>>;
 }
 export async function postReg(data: iReg, { setLogin }: NavProps) {
-    const link: string = `${linkInBack}/reg`
+    const link: string = `${linkInBack}/auth/registration`
     if (data.name == '') { return }
     try {
         console.log(data);

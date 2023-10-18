@@ -12,7 +12,7 @@ export function Register({ setLogin }: RegisterProps) {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    postReg({ name, password, email },  { setLogin });
+    postReg({ name, password, email }, { setLogin });
     setLogin(true);
   }
 

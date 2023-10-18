@@ -9,7 +9,7 @@ interface NavProps {
     setLogin: React.Dispatch<React.SetStateAction<boolean>>;
 }
 export async function postLog(data: iReg, { setLogin }: NavProps) {
-    const link: string = `${linkInBack}/log`;
+    const link: string = `${linkInBack}/auth/login`;
     
 
     if (data.name == '') { return }
@@ -21,13 +21,12 @@ export async function postLog(data: iReg, { setLogin }: NavProps) {
             }
         });
          
-        console.log(respons.data);
+        console.log(respons);
         if (respons.data == 'Login successful') {
            
             console.log(1);
             setLogin(true);
-            let navigate  = useNavigate();
-            navigate("/");
+            
            }
 
     } catch (e: unknown) {
