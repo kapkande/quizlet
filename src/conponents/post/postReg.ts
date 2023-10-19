@@ -6,10 +6,8 @@ interface iReg {
     password: string
     name: string
 }
-interface NavProps {
-    setLogin: React.Dispatch<React.SetStateAction<boolean>>;
-}
-export async function postReg(data: iReg, { setLogin }: NavProps) {
+
+export async function postReg(data: iReg) {
     const link: string = `${linkInBack}/auth/registration`
     if (data.name == '') { return }
     try {
@@ -23,8 +21,7 @@ export async function postReg(data: iReg, { setLogin }: NavProps) {
         });
         console.log(respons.data);
         if (respons.data == 'Account created successfully') {
-            setLogin(true);
-            }
+          }
     } catch (e: unknown) {
         const error = e as AxiosError
         return error

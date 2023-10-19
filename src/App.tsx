@@ -12,10 +12,10 @@ import { useState } from "react";
 
 
 export default function App() {
-  const [login, setLogin] = useState(false)
+ 
   return (
     <main>
-      <Nav login={login} setLogin={setLogin}></Nav>
+      <Nav ></Nav>
       <Routes>
         <Route path="/" element={<ChooseLessons></ChooseLessons>} />
         <Route path="/item" element={<Lason></Lason>} />
@@ -23,8 +23,8 @@ export default function App() {
         <Route path="/learningL1" element={<LearningLevle1></LearningLevle1>} />
         <Route path="/learningL2" element={<LearningLevle2></LearningLevle2>} />
         <Route path="/createLessen" element={<CreateLesson></CreateLesson>} />
-        <Route path="/login" element={<Login setLogin={setLogin}></Login>} />
-        <Route path="/register" element={<Register setLogin={setLogin}></Register>} />
+        <Route path="/login" element={<Login></Login>} />
+        <Route path="/register" element={<Register></Register>} />
       </Routes>
     </main>
 

@@ -1,19 +1,17 @@
 import { useState } from "react";
 import { postReg } from "../post/postReg";
 
-interface RegisterProps {
-  setLogin: React.Dispatch<React.SetStateAction<boolean>>;
-}
 
-export function Register({ setLogin }: RegisterProps) {
+
+export function Register() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    postReg({ name, password, email }, { setLogin });
-    setLogin(true);
+    postReg({ name, password, email });
+
   }
 
   return (

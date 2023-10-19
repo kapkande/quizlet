@@ -1,15 +1,29 @@
 import { Link } from "react-router-dom";
 import styles from './Nav.module.css'
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { linkInBack } from "../linkInBack";
 
-interface NavProps {
-    login: boolean;
-    setLogin: React.Dispatch<React.SetStateAction<boolean>>;
-  }
+export default function Nav() {
+    const [login, setLogin] = useState(false)
+    // console.log(document.cookie);
 
-export default function Nav({ login, setLogin }: NavProps) {
-    function setSingOut() {
-        setLogin(false)
-    }
+    useEffect(() => {
+        const setSingOut = async () => {
+            if (!document.cookie) { return }
+            console.log(document.cookie.split('='));
+            const link: string = `${linkInBack}/auth/user`
+            try {
+               const respons = await axios.get(link);
+                console.log(respons.data);
+            } catch (e: unknown) {
+                const error = e
+                return error
+            }
+        }
+        setSingOut();
+    }, []);
+
     return (
         <nav>
             <ul className={styles.items}>
@@ -25,7 +39,7 @@ export default function Nav({ login, setLogin }: NavProps) {
                     </li>
                 </ul>}
                 {login && <li>
-                    <Link to="#" className={styles.item} onClick={setSingOut}> Sing out </Link>
+                    <Link to="#" className={styles.item} onClick={() => setLogin(false)}> Sing out </Link>
                 </li>}
 
             </ul>

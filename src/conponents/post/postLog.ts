@@ -5,10 +5,7 @@ interface iReg {
     password: string
     name: string
 }
-interface NavProps {
-    setLogin: React.Dispatch<React.SetStateAction<boolean>>;
-}
-export async function postLog(data: iReg, { setLogin }: NavProps) {
+export async function postLog(data: iReg) {
     const link: string = `${linkInBack}/auth/login`;
     
 
@@ -19,18 +16,20 @@ export async function postLog(data: iReg, { setLogin }: NavProps) {
                 name: data.name,
                 password: data.password
             }
-        });
-         
+        })
         console.log(respons);
-        if (respons.data == 'Login successful') {
+        document.cookie = `tocen=${respons.data.token}`
+        
+        // if (respons.data == 'Login successful') {
            
-            console.log(1);
-            setLogin(true);
+        //     console.log(1);
+        //     setLogin(true);
             
-           }
+        //    }
 
     } catch (e: unknown) {
         const error = e as AxiosError
+        console.error(error);
         return error
     }
 }

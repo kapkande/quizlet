@@ -2,17 +2,15 @@ import { useState } from "react";
 import { postLog } from "../post/postLog";
 
 
-interface NavProps {
-    setLogin: React.Dispatch<React.SetStateAction<boolean>>;
-}
-export function Login({ setLogin }: NavProps) {
+
+export function Login() {
     
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
 
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        postLog({ name, password }, { setLogin });
+        postLog({ name, password });
     }
 
     return (
