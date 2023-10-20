@@ -11,15 +11,16 @@ export default function Nav() {
     useEffect(() => {
         const setSingOut = async () => {
             if (!document.cookie) { return }
-            console.log(document.cookie.split('='));
+            // console.log(document.cookie.split('='));
             const link: string = `${linkInBack}/auth/user`
-            try {
-               const respons = await axios.get(link);
-                console.log(respons.data);
-            } catch (e: unknown) {
-                const error = e
-                return error
-            }
+            
+            await axios.get(link)
+            .then(response => {
+                console.log(response.data);
+              })
+              .catch(error => {
+                console.error(error.response.data);
+              });
         }
         setSingOut();
     }, []);

@@ -8,7 +8,6 @@ interface iReg {
 export async function postLog(data: iReg) {
     const link: string = `${linkInBack}/auth/login`;
     
-
     if (data.name == '') { return }
     try {
         const respons = await axios.post(link, {}, {
@@ -19,7 +18,7 @@ export async function postLog(data: iReg) {
         })
         console.log(respons);
         document.cookie = `tocen=${respons.data.token}`
-        
+        console.log(respons.data.token);
         // if (respons.data == 'Login successful') {
            
         //     console.log(1);
