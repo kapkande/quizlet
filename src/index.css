@@ -12,7 +12,17 @@ body {
 ul {
     list-style: none;
 }
+
 a {
     text-decoration: none;
     color: aliceblue;
+}
+
+td {
+    text-align: center;
+    padding: 0 15px;
+}
+
+table {
+    border-collapse: collapse;
 }

@@ -1,28 +1,18 @@
 import { Link } from "react-router-dom";
 import styles from './Nav.module.css'
 import { useEffect, useState } from "react";
-import axios from "axios";
-import { linkInBack } from "../linkInBack";
+
+import { loginVerification } from "../post/loginVerification";
 
 export default function Nav() {
-    const [login, setLogin] = useState(false)
-    // console.log(document.cookie);
-
+    const [userData, setUserData] = useState({
+        name: '',
+        id: -1,
+        email: '',
+        role: [''],
+    })
     useEffect(() => {
-        const setSingOut = async () => {
-            if (!document.cookie) { return }
-            // console.log(document.cookie.split('='));
-            const link: string = `${linkInBack}/auth/user`
-            
-            await axios.get(link)
-            .then(response => {
-                console.log(response.data);
-              })
-              .catch(error => {
-                console.error(error.response.data);
-              });
-        }
-        setSingOut();
+        loginVerification(setUserData);
     }, []);
 
     return (
@@ -31,7 +21,7 @@ export default function Nav() {
                 <li>
                     <Link to="/" className={styles.item}> Home </Link>
                 </li>
-                {!login && <ul className={styles.items}>
+                {!userData.name && <ul className={styles.items}>
                     <li>
                         <Link to="/login" className={styles.item}> Sign in </Link>
                     </li>
@@ -39,10 +29,14 @@ export default function Nav() {
                         <Link to="/register" className={styles.item}> Sign up </Link>
                     </li>
                 </ul>}
-                {login && <li>
-                    <Link to="#" className={styles.item} onClick={() => setLogin(false)}> Sing out </Link>
+                {userData.name && <li>
+                    <div>{userData.name}</div>
+                    <a className={styles.item} onClick={() => { document.cookie = "tocen="; }} href="/">Sing out</a>
+                    {/* <Link to="/" className={styles.item} onClick={() => { document.cookie = "tocen="; }}> Sing out </Link> */}
                 </li>}
-
+                <li>
+                    <Link to="/users" className={styles.item}> List of users </Link>
+                </li>
             </ul>
         </nav>
     )

@@ -8,7 +8,7 @@ import Card from './conponents/games/card/Card';
 import CreateLesson from "./conponents/CreateLesson/CreateLesson";
 import { Register } from "./conponents/logAndReg/Register";
 import { Login } from "./conponents/logAndReg/Login";
-import { useState } from "react";
+import { ListOfUsers } from "./conponents/listOfUsers/listOfUsers";
 
 
 export default function App() {
@@ -25,6 +25,8 @@ export default function App() {
         <Route path="/createLessen" element={<CreateLesson></CreateLesson>} />
         <Route path="/login" element={<Login></Login>} />
         <Route path="/register" element={<Register></Register>} />
+        <Route path="/users" element={<ListOfUsers></ListOfUsers>} />
+        
       </Routes>
     </main>
 
