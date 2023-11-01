@@ -12,7 +12,7 @@ import { ListOfUsers } from "./conponents/listOfUsers/listOfUsers";
 
 
 export default function App() {
- 
+
   return (
     <main>
       <Nav ></Nav>
@@ -26,9 +26,7 @@ export default function App() {
         <Route path="/login" element={<Login></Login>} />
         <Route path="/register" element={<Register></Register>} />
         <Route path="/users" element={<ListOfUsers></ListOfUsers>} />
-        
       </Routes>
     </main>
-
   )
 }

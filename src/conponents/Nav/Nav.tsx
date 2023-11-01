@@ -5,15 +5,26 @@ import { useEffect, useState } from "react";
 import { loginVerification } from "../post/loginVerification";
 
 export default function Nav() {
+    const [isAdmin, setAdmin] = useState(false);
+    const [isUser, setUser] = useState(false);
+
     const [userData, setUserData] = useState({
         name: '',
         id: -1,
         email: '',
-        role: [''],
+        role: '',
     })
     useEffect(() => {
-        loginVerification(setUserData);
-    }, []);
+        loginVerification(setUserData)
+        console.log(1);
+    }, [userData]);
+
+    useEffect(() => {
+        userData.role === 'admin' ? setAdmin(true) : setAdmin(false);
+        userData.role ? setUser(true) : setUser(false);
+        console.log(2);
+    }, [userData]);
+
 
     return (
         <nav>
@@ -21,7 +32,7 @@ export default function Nav() {
                 <li>
                     <Link to="/" className={styles.item}> Home </Link>
                 </li>
-                {!userData.name && <ul className={styles.items}>
+                {!isUser && <ul className={styles.items}>
                     <li>
                         <Link to="/login" className={styles.item}> Sign in </Link>
                     </li>
@@ -29,14 +40,14 @@ export default function Nav() {
                         <Link to="/register" className={styles.item}> Sign up </Link>
                     </li>
                 </ul>}
-                {userData.name && <li>
+                {isUser && <li>
                     <div>{userData.name}</div>
                     <a className={styles.item} onClick={() => { document.cookie = "tocen="; }} href="/">Sing out</a>
                     {/* <Link to="/" className={styles.item} onClick={() => { document.cookie = "tocen="; }}> Sing out </Link> */}
                 </li>}
-                <li>
+                {isAdmin && <li>
                     <Link to="/users" className={styles.item}> List of users </Link>
-                </li>
+                </li>}
             </ul>
         </nav>
     )
