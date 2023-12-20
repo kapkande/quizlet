@@ -13,16 +13,16 @@ export default function Nav() {
         id: -1,
         email: '',
         role: '',
+        icon: '',
     })
+
     useEffect(() => {
         loginVerification(setUserData)
-        console.log(1);
-    }, [userData]);
+    }, []);
 
     useEffect(() => {
         userData.role === 'admin' ? setAdmin(true) : setAdmin(false);
         userData.role ? setUser(true) : setUser(false);
-        console.log(2);
     }, [userData]);
 
 
@@ -40,14 +40,27 @@ export default function Nav() {
                         <Link to="/register" className={styles.item}> Sign up </Link>
                     </li>
                 </ul>}
-                {isUser && <li>
-                    <div>{userData.name}</div>
-                    <a className={styles.item} onClick={() => { document.cookie = "tocen="; }} href="/">Sing out</a>
-                    {/* <Link to="/" className={styles.item} onClick={() => { document.cookie = "tocen="; }}> Sing out </Link> */}
-                </li>}
                 {isAdmin && <li>
                     <Link to="/users" className={styles.item}> List of users </Link>
                 </li>}
+                {isUser &&
+                    <li className={styles.userBlock}>
+                        <Link to="/settings" className={styles.settings}>
+                            <div className={styles.icon} >
+                                <div style={{
+                                    backgroundImage: `url('${userData.icon}')`
+                                }} className={styles.svg}>
+                                </div>
+                                <div style={{
+                                    backgroundImage: `url('./public/nav/settings.svg')`
+                                }} className={styles.svg}>
+                                </div>
+                            </div>
+                            <div>{userData.name}</div>
+                        </Link>
+                        <a className={`${styles.item} ${styles.buttonOut}`} onClick={() => { document.cookie = "tocen="; }} href="/">Sing out</a>
+                        {/* <Link to="/" className={styles.item} onClick={() => { document.cookie = "tocen="; }}> Sing out </Link> */}
+                    </li>}
             </ul>
         </nav>
     )

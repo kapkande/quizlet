@@ -19,8 +19,9 @@ export async function postReg(data: iReg) {
                 password: data.password
             }
         });
-        console.log(respons.data);
+        // console.log(respons.data);
         if (respons.data == 'Account created successfully') {
+            console.log(1);
           }
     } catch (e: unknown) {
         const error = e as AxiosError

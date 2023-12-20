@@ -21,14 +21,17 @@ export function Login() {
             if (e === 'Login successful') {
                 setColor('green')
                 setTextEvent(`You have already logged in as ${name}`)
-                navigate('/');
+                // setTimeout(() => {
+                  navigate('/');  
+                // }, 500);
+                location.reload();
                 return
             }
             setColor('red');
             setTextEvent(e);
         })
 
-        setLoading(false)
+        setLoading(false);
     }
     if (loading) { return <h1>loading...</h1> }
     return (

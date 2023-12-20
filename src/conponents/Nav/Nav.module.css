@@ -1,9 +1,49 @@
-.item{
-color: aliceblue;
+.item {
+    color: aliceblue;
 
 }
-.items{
+
+.items {
     display: flex;
     justify-content: space-between;
     gap: 10px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid seashell;
+    overflow: hidden;
+}
+
+.userBlock {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+}
+
+.buttonOut {
+    flex: 1 1 100%;
+}
+
+.svg {
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+    transition: all 0.5s;
+}
+
+.settings {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    cursor: pointer;
+}
+
+.settings:hover .svg {
+    transform: translateY(-30px);
 }

@@ -9,6 +9,7 @@ import CreateLesson from "./conponents/CreateLesson/CreateLesson";
 import { Register } from "./conponents/logAndReg/Register";
 import { Login } from "./conponents/logAndReg/Login";
 import { ListOfUsers } from "./conponents/listOfUsers/listOfUsers";
+import Settings from "./conponents/Settings/Settings";
 
 
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
         <Route path="/login" element={<Login></Login>} />
         <Route path="/register" element={<Register></Register>} />
         <Route path="/users" element={<ListOfUsers></ListOfUsers>} />
+        <Route path="/settings" element={<Settings></Settings>} />
       </Routes>
     </main>
   )

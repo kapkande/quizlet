@@ -10,7 +10,7 @@ export function Register() {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    postReg({ name, password, email });
+    postReg({ name, password, email })
 
   }
 

@@ -19,8 +19,8 @@ export async function postLog(data: iReg) {
             document.cookie = `tocen=${r.data.token}`
             text = r.data.text
         })
-
         return text;
+
     } catch (e: unknown) {
         const error = e as AxiosError
         console.error(error.message);
