@@ -3,6 +3,7 @@ import styles from './Nav.module.css'
 import { useEffect, useState } from "react";
 
 import { loginVerification } from "../post/loginVerification";
+import { linkInBack } from "../linkInBack";
 
 export default function Nav() {
     const [isAdmin, setAdmin] = useState(false);
@@ -13,7 +14,6 @@ export default function Nav() {
         id: -1,
         email: '',
         role: '',
-        icon: '',
     })
 
     useEffect(() => {
@@ -48,7 +48,7 @@ export default function Nav() {
                         <Link to="/settings" className={styles.settings}>
                             <div className={styles.icon} >
                                 <div style={{
-                                    backgroundImage: `url('${userData.icon}')`
+                                    backgroundImage: `url('${linkInBack}/load/icon/${userData.name}')`
                                 }} className={styles.svg}>
                                 </div>
                                 <div style={{

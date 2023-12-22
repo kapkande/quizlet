@@ -5,9 +5,9 @@ import axios from "axios";
 import { linkInBack } from "../linkInBack";
 
 export default function Settings() {
-    const [isAdmin, setAdmin] = useState(false);
-    const [isUser, setUser] = useState(false);
-    const [selectedImage, setSelectedImage] = useState(null);
+    // const [isAdmin, setAdmin] = useState(false);
+    // const [isUser, setUser] = useState(false);
+    const [selectedImage, setSelectedImage] = useState<File | null>(null);
     const link: string = `${linkInBack}/load/uploadIcon`;
     const [userData, setUserData] = useState({
         name: '',
@@ -21,35 +21,26 @@ export default function Settings() {
         loginVerification(setUserData)
     }, []);
 
-    useEffect(() => {
-        userData.role === 'admin' ? setAdmin(true) : setAdmin(false);
-        userData.role ? setUser(true) : setUser(false);
-    }, [userData]);
+    // useEffect(() => {
+    //     userData.role.includes('user')
+    //     userData.role === 'user' ? setUser(true) : setUser(false);
+    // }, [userData]);
 
-    if (!isUser || !isAdmin) { return <h1>First you need to sign in</h1> }
+    if (userData.role.length < 1) { return <h1>First you need to sign in</h1> }
 
     async function hendlerUpLoad() {
         if (!selectedImage) { alert("Please select a file"); return }
-
-        const formData = new FormData()
-        formData.append('icon', selectedImage)
         const tocen = document.cookie.split('=')[1];
 
-       await fetch(link, {
-            method: "POST",
+        const formData = new FormData()
+        formData.append('file', selectedImage)
+
+        await axios.post(link, formData, {
             headers: {
-                "Content-type": "application/json",
                 tocen: tocen,
-                body: formData
-               
+                userName: userData.name
             },
-            
         })
-
-            // await axios.post(link, {body:formData}, {headers: {
-            //     tocen: tocen
-            // }})
-
             .then((r) => {
                 console.log(r);
             })
@@ -76,8 +67,8 @@ export default function Settings() {
                 type="file"
                 accept="image/*,.png,.jpg,.gif"
                 onChange={(event) => {
-                    // console.log(event.target.files[0]);
-                    setSelectedImage(event.target.files[0]);
+                    const file = (event.target.files && event.target.files[0]) as File;
+                    setSelectedImage(file);
                 }}
             />
         </div>

@@ -6,7 +6,6 @@ interface Idata {
     id: number,
     email: string,
     role: string,
-    icon: string
 }
 
 export async function loginVerification(setData: React.Dispatch<React.SetStateAction<Idata>>) {
@@ -25,7 +24,6 @@ export async function loginVerification(setData: React.Dispatch<React.SetStateAc
                 id: res.data.id,
                 email: res.data.email,
                 role: res.data.permission,
-                icon: res.data.icon
             }
             setData(data);
         })
