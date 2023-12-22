@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import styles from "./InfoPopup.module.css"
 
 export default function InfoPopup({text, color}:any) {
-    const [isRed, setRed] = useState(false)
+    // const [isRed, setRed] = useState(false)
     const [isOpacity, setOpacity] = useState(false)
     const [info, setInfo] = useState('')
     

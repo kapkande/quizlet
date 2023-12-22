@@ -15,6 +15,7 @@ export function ListOfUsers() {
 
     useEffect(() => {
         postUsers(setData)
+        setError('')
     }, []);
     function formatDate(dateString: string) {
         const date = new Date(dateString);

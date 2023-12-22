@@ -13,6 +13,7 @@ export function Login() {
     const navigate = useNavigate();
 
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+        setLog(false)
         e.preventDefault();
         setLoading(true)
         setColor('')

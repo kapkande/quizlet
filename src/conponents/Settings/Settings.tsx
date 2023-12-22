@@ -14,7 +14,6 @@ export default function Settings() {
         id: -1,
         email: '',
         role: '',
-        icon: '',
     })
 
     useEffect(() => {
