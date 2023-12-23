@@ -33,10 +33,12 @@
     height: 30px;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 80%;
+    background-size: 100%;
     transition: all 0.5s;
 }
-
+.settingSvg{
+    background-size: 80%;
+}
 .settings {
     display: flex;
     align-items: center;
@@ -46,4 +48,8 @@
 
 .settings:hover .svg {
     transform: translateY(-30px);
+}
+
+.settings:hover .settingSvg{
+    transform: translateY(-30px) rotate(180deg);
 }

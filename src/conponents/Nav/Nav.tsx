@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from './Nav.module.css'
 import { useEffect, useState } from "react";
-
+// import settingsIcon from "../../../public/nav/settings.svg";
 import { loginVerification } from "../post/loginVerification";
 import { linkInBack } from "../linkInBack";
 
@@ -52,14 +52,13 @@ export default function Nav() {
                                 }} className={styles.svg}>
                                 </div>
                                 <div style={{
-                                    backgroundImage: `url('./public/nav/settings.svg')`
-                                }} className={styles.svg}>
+                                    backgroundImage: `url('${linkInBack}/load/settingSvg')`
+                                }} className={`${styles.svg} ${styles.settingSvg}`}>
                                 </div>
                             </div>
                             <div>{userData.name}</div>
                         </Link>
                         <a className={`${styles.item} ${styles.buttonOut}`} onClick={() => { document.cookie = "tocen="; }} href="/">Sing out</a>
-                        {/* <Link to="/" className={styles.item} onClick={() => { document.cookie = "tocen="; }}> Sing out </Link> */}
                     </li>}
             </ul>
         </nav>
