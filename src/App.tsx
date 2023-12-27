@@ -17,18 +17,20 @@ export default function App() {
   return (
     <main>
       <Nav ></Nav>
-      <Routes>
-        <Route path="/" element={<ChooseLessons></ChooseLessons>} />
-        <Route path="/item" element={<Lason></Lason>} />
-        <Route path="/card" element={<Card></Card>} />
-        <Route path="/learningL1" element={<LearningLevle1></LearningLevle1>} />
-        <Route path="/learningL2" element={<LearningLevle2></LearningLevle2>} />
-        <Route path="/createLessen" element={<CreateLesson></CreateLesson>} />
-        <Route path="/login" element={<Login></Login>} />
-        <Route path="/register" element={<Register></Register>} />
-        <Route path="/users" element={<ListOfUsers></ListOfUsers>} />
-        <Route path="/settings" element={<Settings></Settings>} />
-      </Routes>
+      <div className="wrapper">
+        <Routes>
+          <Route path="/" element={<ChooseLessons></ChooseLessons>} />
+          <Route path="/item" element={<Lason></Lason>} />
+          <Route path="/card" element={<Card></Card>} />
+          <Route path="/learningL1" element={<LearningLevle1></LearningLevle1>} />
+          <Route path="/learningL2" element={<LearningLevle2></LearningLevle2>} />
+          <Route path="/createLessen" element={<CreateLesson></CreateLesson>} />
+          <Route path="/login" element={<Login></Login>} />
+          <Route path="/register" element={<Register></Register>} />
+          <Route path="/users" element={<ListOfUsers></ListOfUsers>} />
+          <Route path="/settings" element={<Settings></Settings>} />
+        </Routes>
+      </div>
     </main>
   )
 }

@@ -1,13 +1,18 @@
 nav {
     background-color: black;
     margin: 0;
-    font-family: 'Roboto', sans-serif ;
-    font-weight: 500
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    border-bottom: 1px solid white;
 }
 
 .item {
     color: aliceblue;
 
+}
+
+.userBlock {
+    margin-bottom: 5px;
 }
 
 .items {
@@ -25,13 +30,7 @@ nav {
     border-radius: 50%;
     border: 1px solid seashell;
     overflow: hidden;
-}
-
-.userBlock {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 7px;
+    margin: 5px 0;
 }
 
 .buttonOut {

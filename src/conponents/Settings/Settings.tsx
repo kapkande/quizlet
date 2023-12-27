@@ -24,6 +24,7 @@ export default function Settings() {
     return (
         <>
         <UploadIcon></UploadIcon>
+        <h2>{userData.name}</h2>
         </>
 
     )
