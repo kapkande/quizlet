@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { loginVerification } from "../post/loginVerification";
 import styles from "./Settings.module.css"
-import { linkInBack } from "../linkInBack";
+import { config } from "../config";
 
 export default function LabelSetting({setSelectedImage}: { setSelectedImage: (file: File | null) => void }) {
     const [isHover, setHover] = useState(false);
@@ -75,7 +75,7 @@ export default function LabelSetting({setSelectedImage}: { setSelectedImage: (fi
                 className={isImg ? `${styles.imgHover} ${styles.img}` : styles.img}
                 alt="icon"
                 width={"250px"}
-                src={`${linkInBack}/load/icon/${userData.name}`}
+                src={`${config.linkInBack}/load/icon/${userData.name}`}
             />
             <div className={isBackgroundHover ? `${styles.backgroundHover} ${styles.background}` : styles.background}>
                 <div className={isBackgroundImageHover ? `${styles.backgroundImageHover} ${styles.backgroundImage}` : styles.backgroundImage}></div>

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { linkInBack } from "../linkInBack";
+import { config } from "../config";
 
 interface Idata {
     name: string,
@@ -11,7 +11,7 @@ interface Idata {
 export async function loginVerification(setData: React.Dispatch<React.SetStateAction<Idata>>) {
     const tocen = document.cookie.split('=')[1];
     if (!tocen || tocen == 'undefined') { return }
-    const link: string = ` ${linkInBack}/auth/user`
+    const link: string = ` ${config.linkInBack}/auth/user`
 
     await axios.post(link, {}, {
         headers: {

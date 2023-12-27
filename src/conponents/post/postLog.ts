@@ -1,5 +1,5 @@
 import axios, { AxiosError } from "axios";
-import { linkInBack } from "../linkInBack";
+import { config } from "../config";
 
 interface iReg {
     password: string
@@ -7,7 +7,7 @@ interface iReg {
 }
 export async function postLog(data: iReg) {
     let text = '';
-    const link: string = `${linkInBack}/auth/login`;
+    const link: string = `${config.linkInBack}/auth/login`;
     if (data.name == '') { return }
     try { 
         await axios.post(link, {}, {

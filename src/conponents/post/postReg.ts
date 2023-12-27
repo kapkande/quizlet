@@ -1,5 +1,5 @@
 import axios, { AxiosError } from "axios";
-import { linkInBack } from "../linkInBack";
+import { config  } from "../config";
 
 interface iReg {
     email: string
@@ -8,7 +8,7 @@ interface iReg {
 }
 
 export async function postReg(data: iReg) {
-    const link: string = `${linkInBack}/auth/registration`
+    const link: string = `${config.linkInBack}/auth/registration`
     if (data.name == '') { return }
     try {
         console.log(data);

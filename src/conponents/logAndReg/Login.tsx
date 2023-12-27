@@ -2,9 +2,14 @@ import { useState } from "react";
 import { postLog } from "../post/postLog";
 import InfoPopup from "../InfoPopup/InfoPopup";
 import { useNavigate } from 'react-router-dom';
+import ReCAPTCHA from "react-google-recaptcha";
+import { config } from "../config";
+
 export function Login() {
     const [name, setName] = useState('')
     const [password, setPassword] = useState('');
+    const [isReady, setReady] = useState(false)
+
     const [log, setLog] = useState(false);
     const [loading, setLoading] = useState(false);
 
@@ -13,28 +18,29 @@ export function Login() {
     const navigate = useNavigate();
 
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-        setLog(false)
         e.preventDefault();
+        if (!isReady) { alert(); return }
+        setLog(false)
         setLoading(true)
         setColor('')
         postLog({ name, password }).then((e: any) => {
-            // setTextEvent(e)
+
             if (e === 'Login successful') {
                 setColor('green')
                 setTextEvent(`You have already logged in as ${name}`)
-                // setTimeout(() => {
-                  navigate('/');  
-                // }, 500);
+                navigate('/');
                 location.reload();
                 return
             }
             setColor('red');
             setTextEvent(e);
         })
-
+        setReady(false)
         setLoading(false);
     }
+
     if (loading) { return <h1>loading...</h1> }
+    
     return (
         <div>
             <InfoPopup color={color} text={textEvent}></InfoPopup>
@@ -45,6 +51,10 @@ export function Login() {
                 <label>password
                     <input name="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </label>
+                <ReCAPTCHA
+                    sitekey={config.recaptcha}
+                    onChange={() => { setReady(true) }}
+                />
                 <button type="submit">
                     Sign in
                 </button>

@@ -1,7 +1,7 @@
 import axios, { AxiosError } from "axios";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { linkInBack } from "../linkInBack";
+import { config } from "../config";
 
 interface Lesson {
     id: string;
@@ -14,7 +14,7 @@ export function useLesson() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const search = useLocation().search.split('?id=')[1];
-    const link: string = `${linkInBack}/data/${search}`
+    const link: string = `${config.linkInBack}/data/${search}`
 
     async function fetchProduct() {
         try {

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { linkInBack } from "../linkInBack";
+import { config } from "../config";
 
 interface Idata {
     dateIn: string
@@ -14,7 +14,7 @@ interface Idata {
 export async function postUsers(setData: React.Dispatch<React.SetStateAction<Idata[]>>) {
     const tocen = document.cookie.split('=')[1];
     if (!tocen || tocen == 'undefined') { return }
-    const link: string = ` ${linkInBack}/auth/users`
+    const link: string = ` ${config.linkInBack}/auth/users`
 
     await axios.post(link, {}, {
         headers: {
@@ -27,7 +27,7 @@ export async function postUsers(setData: React.Dispatch<React.SetStateAction<Ida
             // setData(data);
         })
         .catch(error => {
-            const e:string = String(error.response.data)
+            const e: string = String(error.response.data)
             console.error(e);
         });
 }

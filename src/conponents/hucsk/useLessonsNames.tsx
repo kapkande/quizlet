@@ -1,6 +1,6 @@
 import axios, { AxiosError } from "axios";
 import { useEffect, useState } from "react";
-import { linkInBack } from "../linkInBack";
+import { config } from "../config";
 
 interface lessonsName {
     name: string,
@@ -12,7 +12,7 @@ export function useLessonsNames () {
     const [loading , setLoading ] = useState(false);
     const [error, setError] = useState('');
 
-    const link:string = `${linkInBack}/data`
+    const link:string = `${config.linkInBack}/data`
 
     async function fetchProduct() {
         try {

@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import { loginVerification } from "../post/loginVerification";
 import styles from "./Settings.module.css"
 import axios from "axios";
-import { linkInBack } from "../linkInBack";
+import { config } from "../config";
 import LabelSetting from "./labelSetting";
 
 export default function UploadIcon() {
     const [isLoad, setLoad] = useState(false);
 
     const [selectedImage, setSelectedImage] = useState<File | null>(null);
-    const link: string = `${linkInBack}/load/uploadIcon`;
+    const link: string = `${config.linkInBack}/load/uploadIcon`;
     const [userData, setUserData] = useState({
         name: '',
         id: -1,

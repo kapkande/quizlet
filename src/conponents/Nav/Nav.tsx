@@ -3,7 +3,7 @@ import styles from './Nav.module.css'
 import { useEffect, useState } from "react";
 // import settingsIcon from "../../../public/nav/settings.svg";
 import { loginVerification } from "../post/loginVerification";
-import { linkInBack } from "../linkInBack";
+import { config } from "../config";
 
 export default function Nav() {
     const [isAdmin, setAdmin] = useState(false);
@@ -49,11 +49,11 @@ export default function Nav() {
                             <Link to="/settings" className={styles.settings}>
                                 <div className={styles.icon} >
                                     <div style={{
-                                        backgroundImage: `url('${linkInBack}/load/icon/${userData.name}')`
+                                        backgroundImage: `url('${config.linkInBack}/load/icon/${userData.name}')`
                                     }} className={styles.svg}>
                                     </div>
                                     <div style={{
-                                        backgroundImage: `url('${linkInBack}/load/settingSvg')`
+                                        backgroundImage: `url('${config.linkInBack}/load/settingSvg')`
                                     }} className={`${styles.svg} ${styles.settingSvg}`}>
                                     </div>
                                 </div>
