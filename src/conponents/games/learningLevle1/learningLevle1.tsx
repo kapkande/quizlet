@@ -24,8 +24,8 @@ export default function Learning() {
     const arreyItem = lesson.data;
 
     function handlerButtonClick() {
-        console.log(indexExsept  );
-        if (indexExsept.length - 1  === arreyItem.length) { setActiveButtonNext(true); return };
+        console.log(indexExsept);
+        if (indexExsept.length - 1 === arreyItem.length) { setActiveButtonNext(true); return };
         const corectIndex = getCeack(indexActive);
         setIndexActive(corectIndex)
         setTermActive(false)
@@ -41,7 +41,7 @@ export default function Learning() {
         if (flag) { flag = false; return index + 1 }
         else { return index }
     }
-  
+
     return (
         <div className={styles.learning}>
             <Range arreyItem={arreyItem} indexActive={indexActive}></Range>
@@ -56,14 +56,14 @@ export default function Learning() {
                         setIndexActive={setIndexActive}
                         setIndexExsept={setIndexExsept}
                     ></CardBlock>
-                    {termActive && <button className={styles.button} onClick={handlerButtonClick}></button>}
+                    {termActive && <button className={styles.button} onClick={handlerButtonClick}>next</button>}
                     {activeButtonNext &&
                         <Link to={{
                             pathname: "/learningL2",
                             search: `id=${String(lesson.id)}`
                         }}
                             className={styles.button}>
-                            <h1 className={styles.name}>next leavel</h1>
+                            next leavel
                         </Link>}
                 </div>
             </div>
