@@ -1,22 +1,3 @@
-.item {
-    background-color: rgb(12, 47, 61);
-    padding: 7px;
-    margin: 2%;
-    text-align: center;
-    border: 2px solid aliceblue;
-    border-radius: 10px;
-}
-
-.term {
-    font-size: 32px;
-    cursor: pointer;
-}
-
-.description {
-    font-size: 26px;
-    flex: 1 1 100%;
-}
-
 .button {
     width: 50px;
     height: 50px;
@@ -25,29 +6,38 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
 }
-
+.gameblock{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.cardBlock {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 980px;
-    justify-content: center;
+.answersItem {
+    width: 150px;
+    background-color: rgb(0, 0, 0);
+    font-size: 18px;
+    text-align: center;
+    padding: 10px 0;
+    border: 2px solid aliceblue;
+    cursor: pointer;
 }
 
-
-
-
-@media (max-width: 650px) {
-    .item {
-        width: 200px;
-    }
-
-    .gameblock {
-        flex-direction: column;
-    }
+.answerList {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+ul {
+    padding: 0;
+}
+.activeButton{
+    background-color: #291f3f;
+}
+.rightAnswer{
+    background-color: #1e4e1d;
 }

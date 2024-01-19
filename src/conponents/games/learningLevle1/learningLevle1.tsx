@@ -1,18 +1,17 @@
 import { Link } from "react-router-dom";
 import { useLesson } from "../../hucsk/useLesson";
 import styles from './learning.module.css';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Range from "../range/Range";
 import CardBlock from "./cardBlock/CardBlock";
 
 
 export default function Learning() {
-
     const { lesson, loading, error } = useLesson();
-    const [termActive, setTermActive] = useState(false);
-    const [indexActive, setIndexActive] = useState(0);
-    const [indexExsept, setIndexExsept] = useState([-1])
-    const [activeButtonNext, setActiveButtonNext] = useState(false);
+    const [carentIndexOfArrey, setCarentIndexOfArrey] = useState(0);
+    const [arreyQuizFalse, setArreyQuizFalse] = useState<any[]>([]);
+    const [activeButtonNextLevle, setActiveButtonNextLevle] = useState(false);
+    const [isActiveButton, setActiveButton] = useState(false);
 
     if (loading) {
         return (<h1>loading...</h1>)
@@ -21,43 +20,47 @@ export default function Learning() {
         return (<h1>{error}</h1>)
     }
     if (!lesson.data) { return }
-    const arreyItem = lesson.data;
 
-    function handlerButtonClick() {
-        console.log(indexExsept);
-        if (indexExsept.length - 1 === arreyItem.length) { setActiveButtonNext(true); return };
-        const corectIndex = getCeack(indexActive);
-        setIndexActive(corectIndex)
-        setTermActive(false)
-    }
+    const arreyQuiz: any = lesson.data;
 
-    let flag = true;
-    function getCeack(index: number) {
-        if (index > indexExsept.length - 1) { return getCeack(0) }
-        if (indexExsept.includes(index)) {
-            flag = false;
-            return getCeack(index + 1);
-        }
-        if (flag) { flag = false; return index + 1 }
-        else { return index }
+    function handlerButtonClickAgain() {
+        setCarentIndexOfArrey(0)
+        setActiveButtonNextLevle(false)
+        setActiveButton(false)
+        setArreyQuizFalse([])
     }
 
     return (
         <div className={styles.learning}>
-            <Range arreyItem={arreyItem} indexActive={indexActive}></Range>
+            <Range arreyQuiz={arreyQuiz} indexActive={carentIndexOfArrey}></Range>
             <div className={styles.wrap}>
                 <h1 className={styles.title}>{lesson.name}</h1>
                 <div className={styles.gameblock}>
                     <CardBlock
-                        arreyItem={arreyItem}
-                        indexActive={indexActive}
-                        setTermActive={setTermActive}
-                        termActive={termActive}
-                        setIndexActive={setIndexActive}
-                        setIndexExsept={setIndexExsept}
+                        arreyQuiz={arreyQuiz}
+                        setActiveButtonNextLevle={setActiveButtonNextLevle}
+                        carentIndexOfArrey={carentIndexOfArrey}
+                        setCarentIndexOfArrey={setCarentIndexOfArrey}
+                        arreyQuizFalse={arreyQuizFalse}
+                        setArreyQuizFalse={setArreyQuizFalse}
+                        isActiveButton={isActiveButton}
+                        setActiveButton={setActiveButton}
                     ></CardBlock>
-                    {termActive && <button className={styles.button} onClick={handlerButtonClick}>next</button>}
-                    {activeButtonNext &&
+                    {activeButtonNextLevle &&
+                        <div>
+                            <h3>You have made {arreyQuizFalse.length} {arreyQuizFalse.length === 0 ? 'mistake' : 'mistakes'}. You can see them from below.</h3>
+                            <ul>
+                                {arreyQuizFalse.map((arr: string[], i: number) => (
+                                    <li key={i}>
+                                        {arr[0]} - {arr[1]}
+                                    </li>
+                                ))}
+                            </ul>
+                            <h4>You can do it again or go to the next level.</h4>
+                        </div>
+                    }
+                    {activeButtonNextLevle && <button className={styles.button} onClick={handlerButtonClickAgain}>again</button>}
+                    {activeButtonNextLevle &&
                         <Link to={{
                             pathname: "/learningL2",
                             search: `id=${String(lesson.id)}`

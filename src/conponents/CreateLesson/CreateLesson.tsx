@@ -1,18 +1,20 @@
 import { useState } from "react";
 import { InputBlock } from "./CreateInputs";
+import { postCreateLesson } from "../post/postCreateLesson";
+
 
 export default function InputBlocks() {
-  const [inputBlocks, setInputBlocks] = useState([{ id: 1, term: "", description:"" }]);
+  const [inputBlocks, setInputBlocks] = useState([{ id: 1, term: "", description: "" }]);
 
   const handleAddBlock = () => {
-    setInputBlocks([...inputBlocks, { id: inputBlocks.length + 1, term: "", description:"" }]);
+    setInputBlocks([...inputBlocks, { id: inputBlocks.length + 1, term: "", description: "" }]);
   };
 
   const handleRemoveBlock = (id: number) => {
     setInputBlocks(inputBlocks.filter((block) => block.id !== id));
   };
 
-  const handleInputChange = (id: number, term:string, description:string) => {
+  const handleInputChange = (id: number, term: string, description: string) => {
     const updatedBlocks = inputBlocks.map((block) =>
       block.id === id ? { ...block, term, description } : block
     );
@@ -21,7 +23,11 @@ export default function InputBlocks() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(inputBlocks);
+    const arr: string[][] = []
+    inputBlocks.forEach(element => {
+      arr.push([element.term, element.description])
+    });
+    postCreateLesson(arr)
   };
 
   return (

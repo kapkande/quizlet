@@ -1,6 +1,7 @@
 .range {
     display: flex;
     animation: stick 1s linear forwards;
+
 }
 
 .stick {

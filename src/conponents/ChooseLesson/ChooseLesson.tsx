@@ -28,7 +28,7 @@ export default function ChooseLesson() {
                     </Link>)
             })}
             {isAdmin && <Link
-                to="/createLessen" className={styles.item}>
+                to="/createLesson" className={styles.item}>
                 <h1 className={styles.name}>Create lessons</h1>
             </Link>}
         </div >

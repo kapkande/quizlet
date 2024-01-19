@@ -17,17 +17,17 @@ export default function Card() {
         return (<h1>{error}</h1>)
     }
     if (!lesson.data) { return }
-    const arreyItem = lesson.data;
+    const arreyQuiz = lesson.data;
 
     function handlerClick(i: number) {
         setindexActive((p) => {
-            if (p + i > arreyItem.length - 1 || p + i < 0) { return p }
+            if (p + i > arreyQuiz.length - 1 || p + i < 0) { return p }
             return p + i
         })
     }
     return (
         <div className={styles.card}>
-            <Range arreyItem={arreyItem} indexActive={indexActive}></Range>
+            <Range arreyQuiz={arreyQuiz} indexActive={indexActive}></Range>
             <div className={styles.wrap}>
                 <h1 className={styles.title}>{lesson.name}</h1>
                 <div className={styles.gameblock}>
@@ -35,19 +35,19 @@ export default function Card() {
                         onClick={
                             () => { setTermActive(true), handlerClick(-1) }
                         }
-                        className={styles.button}>
+                        className={`${styles.button} ${styles.buttonBack}`}>
                     </button>
                     <div onClick={() => setTermActive(pr => !pr)} className={`${styles.cardBlock} `}>
                         <div className={`${styles.item} ${!termActive ? styles.itemActive : ''}`}>
-                            <div className={`${styles.term}`}>{arreyItem[indexActive][0]}</div>
-                            <div className={`${styles.description}`}>{arreyItem[indexActive][1]}</div>
+                            <div className={`${styles.term}`}>{arreyQuiz[indexActive][0]}</div>
+                            <div className={`${styles.description}`}>{arreyQuiz[indexActive][1]}</div>
                         </div>
                     </div>
                     <button
                         onClick={
                             () => { setTermActive(true), handlerClick(+1) }
                         }
-                        className={styles.button}>
+                        className={`${styles.button} ${styles.buttonForward}`}>
                     </button>
                 </div>
             </div>

@@ -18,11 +18,11 @@ export default function Learning() {
         return (<h1>{error}</h1>)
     }
     if (!lesson.data) { return }
-    const arreyItem = lesson.data;
+    const arreyQuiz = lesson.data;
 
     function handlerClick(i: number) {
         setindexActive((p) => {
-            if (p + i > arreyItem.length - 1 || p + i < 0) { return p }
+            if (p + i > arreyQuiz.length - 1 || p + i < 0) { return p }
             return p + i
         })
     }
@@ -33,10 +33,10 @@ export default function Learning() {
         // console.log(inputValue +'   '+ carentValue);
         if (carentValue === inputValue) { alert('ok') }
     }
-    console.log(arreyItem);
+  
     return (
         <div className={styles.learning}>
-            <Range arreyItem={arreyItem} indexActive={indexActive}></Range>
+            <Range arreyQuiz={arreyQuiz} indexActive={indexActive}></Range>
             <div className={styles.wrap}>
                 <h1 className={styles.title}>{lesson.id}</h1>
                 <div className={styles.gameblock}>
@@ -44,16 +44,16 @@ export default function Learning() {
                         onClick={
                             () => { setTermActive(true), handlerClick(-1) }
                         }
-                        className={styles.button}>
+                        className={`${styles.button} ${styles.buttonBack}`}>
                     </button>
                     <div onClick={() => setTermActive(pr => !pr)} className={styles.cardBlock}>
 
                         <div className={`${styles.item}`}>
                             {!termActive &&
-                                <div className={`${styles.term} `}>{arreyItem[indexActive][0]}</div>
+                                <div className={`${styles.term} `}>{arreyQuiz[indexActive][0]}</div>
                             }
                             {termActive &&
-                                <div className={`${styles.description}`}>{arreyItem[indexActive][1]}</div>
+                                <div className={`${styles.description}`}>{arreyQuiz[indexActive][1]}</div>
                             }
                         </div>
                     </div>
@@ -61,11 +61,11 @@ export default function Learning() {
                         onClick={
                             () => { setTermActive(true), handlerClick(+1) }
                         }
-                        className={styles.button}>
+                        className={`${styles.button} ${styles.buttonForward}`}>
                     </button>
                 </div>
                 <form onSubmit={handleInputChange}>
-                    <input type="text" value={inputValue} onChange={(e) => { setCarentValue(arreyItem[indexActive][0]), setInputValue(e.target.value) }} />
+                    <input type="text" value={inputValue} onChange={(e) => { setCarentValue(arreyQuiz[indexActive][0]), setInputValue(e.target.value) }} />
                     <button type="submit">Submit</button>
                 </form>
             </div>
