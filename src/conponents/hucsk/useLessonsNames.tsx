@@ -1,26 +1,29 @@
 import axios, { AxiosError } from "axios";
 import { useEffect, useState } from "react";
 import { config } from "../config";
-
-interface lessonsName {
+interface Idata {
+    data: string[],
     name: string,
-    id:number
+}
+interface lessonsName {
+    data: Idata[],
+    id: number,
 }
 
-export function useLessonsNames () {
+export function useLessonsNames() {
     const [lessonsNames, setLessonsNames] = useState<lessonsName[]>([]);
-    const [loading , setLoading ] = useState(false);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
 
-    const link:string = `${config.linkInBack}/data`
+    const link: string = `${config.linkInBack}/data`
 
     async function fetchProduct() {
         try {
             setError('')
-            setLoading (true)
+            setLoading(true)
             const respons = await axios.get(link)
             setLessonsNames(respons.data)
-            setLoading (false)
+            setLoading(false)
         } catch (e: unknown) {
             const error = e as AxiosError
             setError(error.message)
@@ -30,5 +33,5 @@ export function useLessonsNames () {
     useEffect(() => {
         fetchProduct()
     }, [])
-    return {lessonsNames, loading, error}
+    return { lessonsNames, loading, error }
 }

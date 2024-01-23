@@ -17,7 +17,7 @@ export default function Card() {
         return (<h1>{error}</h1>)
     }
     if (!lesson.data) { return }
-    const arreyQuiz = lesson.data;
+    const arreyQuiz = lesson.data.data;
 
     function handlerClick(i: number) {
         setindexActive((p) => {
@@ -29,7 +29,7 @@ export default function Card() {
         <div className={styles.card}>
             <Range arreyQuiz={arreyQuiz} indexActive={indexActive}></Range>
             <div className={styles.wrap}>
-                <h1 className={styles.title}>{lesson.name}</h1>
+                <h1 className={styles.title}>{lesson.data.name}</h1>
                 <div className={styles.gameblock}>
                     <button
                         onClick={

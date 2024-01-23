@@ -18,7 +18,7 @@ export default function Learning() {
         return (<h1>{error}</h1>)
     }
     if (!lesson.data) { return }
-    const arreyQuiz = lesson.data;
+    const arreyQuiz = lesson.data.data;
 
     function handlerClick(i: number) {
         setindexActive((p) => {
@@ -30,7 +30,6 @@ export default function Learning() {
     function handleInputChange(e: any) {
         e.preventDefault();
         setInputValue('')
-        // console.log(inputValue +'   '+ carentValue);
         if (carentValue === inputValue) { alert('ok') }
     }
   

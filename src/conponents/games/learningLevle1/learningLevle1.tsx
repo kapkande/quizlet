@@ -21,7 +21,7 @@ export default function Learning() {
     }
     if (!lesson.data) { return }
 
-    const arreyQuiz: any = lesson.data;
+    const arreyQuiz: any = lesson.data.data;
 
     function handlerButtonClickAgain() {
         setCarentIndexOfArrey(0)
@@ -34,7 +34,7 @@ export default function Learning() {
         <div className={styles.learning}>
             <Range arreyQuiz={arreyQuiz} indexActive={carentIndexOfArrey}></Range>
             <div className={styles.wrap}>
-                <h1 className={styles.title}>{lesson.name}</h1>
+                <h1 className={styles.title}>{lesson.data.name}</h1>
                 <div className={styles.gameblock}>
                     <CardBlock
                         arreyQuiz={arreyQuiz}

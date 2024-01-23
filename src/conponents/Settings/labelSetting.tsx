@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { loginVerification } from "../post/loginVerification";
+import { loginVerification } from "../post/postLoginVerification";
 import styles from "./Settings.module.css"
 import { config } from "../config";
 

@@ -1,10 +1,13 @@
+// InputBlocks.tsx
 import { useState } from "react";
 import { InputBlock } from "./CreateInputs";
 import { postCreateLesson } from "../post/postCreateLesson";
-
+import { useCheckVerification } from "../hucsk/useCheckVerification";
 
 export default function InputBlocks() {
+ 
   const [inputBlocks, setInputBlocks] = useState([{ id: 1, term: "", description: "" }]);
+  const [ isLessonName, setLessonName] = useState('');
 
   const handleAddBlock = () => {
     setInputBlocks([...inputBlocks, { id: inputBlocks.length + 1, term: "", description: "" }]);
@@ -23,15 +26,19 @@ export default function InputBlocks() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const arr: string[][] = []
+    const arr: string[][] = [];
     inputBlocks.forEach(element => {
-      arr.push([element.term, element.description])
+      arr.push([element.term, element.description]);
     });
-    postCreateLesson(arr)
+  postCreateLesson(arr, isLessonName);
+
   };
 
   return (
     <form onSubmit={handleSubmit}>
+      <label>Lesson's name
+                <input type="text" value={isLessonName} onChange={(e)=>{setLessonName(e.currentTarget.value)}} />
+            </label>
       {inputBlocks.map((block) => (
         <InputBlock
           key={block.id}

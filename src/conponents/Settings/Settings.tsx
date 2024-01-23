@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { loginVerification } from "../post/loginVerification";
+import { loginVerification } from "../post/postLoginVerification";
 import UploadIcon from "./UploadIcon";
 
 

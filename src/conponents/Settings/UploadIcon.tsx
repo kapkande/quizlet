@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { loginVerification } from "../post/loginVerification";
+import { loginVerification } from "../post/postLoginVerification";
 import styles from "./Settings.module.css"
 import axios from "axios";
 import { config } from "../config";

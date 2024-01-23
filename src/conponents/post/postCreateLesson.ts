@@ -1,17 +1,25 @@
 import axios, { AxiosError } from "axios";
 import { config } from "../config";
 
-export async function postCreateLesson(data: string[][]) {
+export async function postCreateLesson(array: string[][], isLessonName:string) {
     const link: string = `${config.linkInBack}/edit/createLesson`
     const tocen = document.cookie.split('=')[1];
-    if (data.length < 3) { console.log(data.length + ' must be 4'); return }
+    console.log(array);
+    if (array.length < 4) { console.log(array.length + ' must be 4'); return }
+
+    const data = {
+        data: array,
+        name: isLessonName
+    }
     try {
+
         const respons = await axios.post(link, {}, {
             headers: {
                 data: JSON.stringify(data),
                 tocen:tocen
             }
-        });
+        })
+        // .then((e)=>{console.log(e);})
         // if (respons.data == 'Lesson created successfully') {
         //     console.log(1);
         //   }

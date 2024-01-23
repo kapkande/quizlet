@@ -8,7 +8,7 @@ interface Idata {
     role: string,
 }
 
-export async function loginVerification(setData: React.Dispatch<React.SetStateAction<Idata>>) {
+export async function loginVerification(setData: React.Dispatch<React.SetStateAction<Idata>>, setAdmin: React.Dispatch<React.SetStateAction<boolean>>, setUser: React.Dispatch<React.SetStateAction<boolean>>) {
     const tocen = document.cookie.split('=')[1];
     if (!tocen || tocen == 'undefined') { return }
     const link: string = ` ${config.linkInBack}/auth/user`
@@ -25,7 +25,10 @@ export async function loginVerification(setData: React.Dispatch<React.SetStateAc
                 email: res.data.email,
                 role: res.data.permission,
             }
+            data.role === 'admin' ? setAdmin(true) : setAdmin(false);
+            data.role ? setUser(true) : setUser(false);
             setData(data);
+            return data
         })
         .catch(error => {
             console.error(error.response.data);

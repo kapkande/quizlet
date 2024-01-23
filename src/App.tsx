@@ -11,12 +11,11 @@ import { Login } from "./conponents/logAndReg/Login";
 import { ListOfUsers } from "./conponents/listOfUsers/listOfUsers";
 import Settings from "./conponents/Settings/Settings";
 
-
 export default function App() {
 
   return (
     <main>
-      <Nav ></Nav>
+      <Nav></Nav>
       <div className="wrapper">
         <Routes>
           <Route path="/" element={<ChooseLessons></ChooseLessons>} />

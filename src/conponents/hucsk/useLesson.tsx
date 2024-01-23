@@ -3,10 +3,13 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { config } from "../config";
 
-interface Lesson {
-    id: string;
+interface IData {
     data: string[][];
     name: string
+}
+interface Lesson {
+    id: string;
+    data: IData;
 }
 
 export function useLesson() {
