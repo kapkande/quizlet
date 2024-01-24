@@ -1,44 +1,22 @@
 
 import { Link } from 'react-router-dom';
-import { useLessonsNames } from '../hucsk/useLessonsNames'
 import styles from './ChooseLesson.module.css'
 import { useCheckVerification } from "../hucsk/useCheckVerification";
+import Lessons from './Lessons';
+import UsersLessons from './usersLessons';
+
 
 export default function ChooseLesson() {
-    const { isUser } = useCheckVerification();
-    const { lessonsNames, loading, error } = useLessonsNames();
-    if (loading) {
-        return (<h1>loading...</h1>)
-    }
-    if (error) {
-        return (<h1>{error}</h1>)
-    }
-    if (!lessonsNames.length) { return }
-
+    const { userData, isUser } = useCheckVerification();
     return (
-        <div className={styles.items}>
-            {lessonsNames.map((e: any, i: number) => {
-                return (
-                    <Link
-                        to={{
-                            pathname: "/item",
-                            search: `id=${String(e.id)}`
-                        }}
-                        className={styles.item}
-                        key={i}
-                    >
-                        <h1 className={styles.name}>{e.data.name}</h1>
-                    </Link>)
-            })}
-            {isUser &&
-                <>
-
-                </>}
+        <>
+            <Lessons></Lessons>
             {isUser &&
                 <Link
                     to="/createLesson" className={styles.item}>
                     <h1 className={styles.name}>Create lessons</h1>
                 </Link>}
-        </div >
+            {isUser && <UsersLessons userData={userData}></UsersLessons>}
+        </>
     )
 }

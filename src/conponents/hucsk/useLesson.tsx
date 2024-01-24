@@ -12,13 +12,17 @@ interface Lesson {
     data: IData;
 }
 
-export function useLesson() {
+export function useLesson(userName:string) {
     const [lesson, setLason] = useState<Lesson>(Object);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
-    const search = useLocation().search.split('?id=')[1];
-    const link: string = `${config.linkInBack}/data/${search}`
+    const search = useLocation().search.split('?id=')[1]; //заменить
+    console.log(userName);
+  let data1 = `${userName === '/card' ? '' : 'user/' + userName}`
 
+    
+    const link: string = `${config.linkInBack}/data/${data1}/${search}`
+console.log(link);
     async function fetchProduct() {
         try {
             setError('')

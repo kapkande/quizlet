@@ -1,6 +1,7 @@
 import axios, { AxiosError } from "axios";
 import { useEffect, useState } from "react";
 import { config } from "../config";
+import { useCheckVerification } from "./useCheckVerification";
 interface Idata {
     data: string[],
     name: string,
@@ -10,19 +11,18 @@ interface lessonsName {
     id: number,
 }
 
-export function useLessonsNames() {
-    const [lessonsNames, setLessonsNames] = useState<lessonsName[]>([]);
+export function useUsersLessons(userName: string) {
+    const [usersLessons, setUsersLessons] = useState<lessonsName[]>([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
-
-    const link: string = `${config.linkInBack}/data`
-
+    const link: string = `${config.linkInBack}/data/user/${userName}`
+console.log(link);
     async function fetchProduct() {
         try {
             setError('')
             setLoading(true)
             const respons = await axios.get(link)
-            setLessonsNames(respons.data)
+            setUsersLessons(respons.data)
             setLoading(false)
         } catch (e: unknown) {
             const error = e as AxiosError
@@ -33,5 +33,5 @@ export function useLessonsNames() {
     useEffect(() => {
         fetchProduct()
     }, [])
-    return { lessonsNames, loading, error }
+    return { usersLessons, loading, error }
 }

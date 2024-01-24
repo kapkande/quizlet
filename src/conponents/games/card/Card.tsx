@@ -3,13 +3,17 @@ import { useLesson } from "../../hucsk/useLesson";
 import styles from './card.module.css'
 import { useState } from 'react'
 import Range from "../range/Range";
+import { useLocation } from "react-router-dom";
 
 
 export default function Card() {
-    const { lesson, loading, error } = useLesson()
+    const userName = useLocation().pathname.split('/').reverse()[0];
+    // console.log(userName);
+    const { lesson, loading, error } = useLesson(userName)
+
     const [termActive, setTermActive] = useState(true);
     const [indexActive, setindexActive] = useState(0);
-
+console.log(lesson);
     if (loading) {
         return (<h1>loading...</h1>)
     }
@@ -18,7 +22,7 @@ export default function Card() {
     }
     if (!lesson.data) { return }
     const arreyQuiz = lesson.data.data;
-
+console.log(arreyQuiz);
     function handlerClick(i: number) {
         setindexActive((p) => {
             if (p + i > arreyQuiz.length - 1 || p + i < 0) { return p }
