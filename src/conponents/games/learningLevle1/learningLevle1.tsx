@@ -1,27 +1,32 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useLesson } from "../../hucsk/useLesson";
 import styles from './learning.module.css';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Range from "../range/Range";
 import CardBlock from "./cardBlock/CardBlock";
 
 
 export default function Learning() {
+    let userName: string = ''
+    const nameFromSearch = useLocation().pathname.split('/').reverse()[0];
+    if (['learningL2'].includes(nameFromSearch)) { userName = '' }
+    else {
+        userName = '/user/' + nameFromSearch
+    };
     const { lesson, loading, error } = useLesson();
     const [carentIndexOfArrey, setCarentIndexOfArrey] = useState(0);
     const [arreyQuizFalse, setArreyQuizFalse] = useState<any[]>([]);
     const [activeButtonNextLevle, setActiveButtonNextLevle] = useState(false);
     const [isActiveButton, setActiveButton] = useState(false);
-
     if (loading) {
         return (<h1>loading...</h1>)
     }
     if (error) {
         return (<h1>{error}</h1>)
     }
-    if (!lesson.data) { return }
+    if (!lesson?.id) { return }
 
-    const arreyQuiz: any = lesson.data.data;
+    const arreyQuiz: any = lesson.lesson.data;
 
     function handlerButtonClickAgain() {
         setCarentIndexOfArrey(0)
@@ -30,11 +35,12 @@ export default function Learning() {
         setArreyQuizFalse([])
     }
 
+
     return (
         <div className={styles.learning}>
             <Range arreyQuiz={arreyQuiz} indexActive={carentIndexOfArrey}></Range>
             <div className={styles.wrap}>
-                <h1 className={styles.title}>{lesson.data.name}</h1>
+                <h1 className={styles.title}>{lesson.lesson.name}</h1>
                 <div className={styles.gameblock}>
                     <CardBlock
                         arreyQuiz={arreyQuiz}
@@ -62,7 +68,7 @@ export default function Learning() {
                     {activeButtonNextLevle && <button className={styles.button} onClick={handlerButtonClickAgain}>again</button>}
                     {activeButtonNextLevle &&
                         <Link to={{
-                            pathname: "/learningL2",
+                            pathname: `/learningL2${userName}`,
                             search: `id=${String(lesson.id)}`
                         }}
                             className={styles.button}>

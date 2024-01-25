@@ -9,27 +9,34 @@ interface IData {
 }
 interface Lesson {
     id: string;
-    data: IData;
+    lesson: IData;
+    userName: string;
 }
 
-export function useLesson(userName:string) {
-    const [lesson, setLason] = useState<Lesson>(Object);
+export function useLesson() {
+    const nameFromSearch = useLocation().pathname.split('/').reverse()[0];
+    const [lesson, setLason] = useState<Lesson>();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
-    const search = useLocation().search.split('?id=')[1]; //заменить
-    console.log(userName);
-  let data1 = `${userName === '/card' ? '' : 'user/' + userName}`
+    const search = useLocation().search.split('?id=')[1];
+    let userName: string
 
-    
-    const link: string = `${config.linkInBack}/data/${data1}/${search}`
-console.log(link);
+    if (['card', 'learningL1', 'learningL2'].includes(nameFromSearch)) { userName = '' }
+    else {
+        userName = 'user/' + nameFromSearch + '/'
+    };
+
+    const link: string = `${config.linkInBack}/data/${userName}${search}`
     async function fetchProduct() {
         try {
             setError('')
             setLoading(true)
-            const respons = await axios.get<Lesson>(link)
-            console.log(respons);
-            setLason(respons.data)
+            const respons = await axios.get(link)
+           
+            if (userName) {
+                setLason(respons.data[0])
+            } else { setLason(respons.data) }
+
             setLoading(false)
         } catch (e: unknown) {
             const error = e as AxiosError

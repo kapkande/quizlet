@@ -4,10 +4,10 @@ import { Link, useLocation } from "react-router-dom";
 
 export default function Lesson() {
     const search = useLocation().search;
-    const userName =  '/' + useLocation().pathname.split('/').reverse()[0];
-console.log(userName);
+    const userName = '/' + useLocation().pathname.split('/').reverse()[0];
+
     // const { lesson, loading, error } = useLesson(search);
-    
+
     // if (loading) {
     //     return (<h1>loading...</h1>)
     // }
@@ -15,7 +15,7 @@ console.log(userName);
     //     return (<h1>{error}</h1>)
     // }
     // console.log(`${userName === '/item' ? '/card' : '/card' + userName}`);
-   return (
+    return (
         <div className={styles.games}>
             <ul className={styles.gamesList}>
                 <li>
@@ -29,7 +29,7 @@ console.log(userName);
                 </li>
                 <li>
                     <Link to={{
-                        pathname: `${userName === 'item' ? '/learningL1' : '/learningL1' + userName}`,
+                        pathname: `${userName === '/item' ? '/learningL1' : '/learningL1' + userName}`,
                         search: search
                     }}
                         className={styles.item}>

@@ -6,7 +6,7 @@ interface Idata {
     name: string,
 }
 interface lessonsName {
-    data: Idata[],
+    lesson: Idata[],
     id: number,
 }
 

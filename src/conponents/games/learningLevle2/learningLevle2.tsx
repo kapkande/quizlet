@@ -3,7 +3,6 @@ import styles from './learning.module.css';
 import { useState } from 'react';
 import Range from "../range/Range";
 
-
 export default function Learning() {
     const [inputValue, setInputValue] = useState("");
     const { lesson, loading, error } = useLesson();
@@ -17,8 +16,9 @@ export default function Learning() {
     if (error) {
         return (<h1>{error}</h1>)
     }
-    if (!lesson.data) { return }
-    const arreyQuiz = lesson.data.data;
+    console.log(lesson);
+    if (!lesson?.id) { return }
+    const arreyQuiz = lesson.lesson.data;
 
     function handlerClick(i: number) {
         setindexActive((p) => {
@@ -32,7 +32,7 @@ export default function Learning() {
         setInputValue('')
         if (carentValue === inputValue) { alert('ok') }
     }
-  
+
     return (
         <div className={styles.learning}>
             <Range arreyQuiz={arreyQuiz} indexActive={indexActive}></Range>

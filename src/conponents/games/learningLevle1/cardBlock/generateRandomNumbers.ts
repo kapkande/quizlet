@@ -1,7 +1,7 @@
 export function generateRandomNumbers(carentNumber: number, max: number ) {
     const uniqueNumbers = new Set();
     
-    console.log(carentNumber);
+    // console.log(carentNumber);
     uniqueNumbers.add(carentNumber);
 
     const min = 0
@@ -17,6 +17,6 @@ export function generateRandomNumbers(carentNumber: number, max: number ) {
         const j = Math.floor(Math.random() * (i + 1));
         [arr[i], arr[j]] = [arr[j], arr[i]];
     }
-    console.log(arr + ' arr');
+    // console.log(arr + ' arr');
     return arr as number[];
 }

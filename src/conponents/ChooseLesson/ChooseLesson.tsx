@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './ChooseLesson.module.css'
 import { useCheckVerification } from "../hucsk/useCheckVerification";
 import Lessons from './Lessons';
-import UsersLessons from './usersLessons';
+import UsersLessons from './UsersLessons';
 
 
 export default function ChooseLesson() {

@@ -21,8 +21,8 @@ export default function App() {
           <Route path="/" element={<ChooseLessons></ChooseLessons>} />
           <Route path="/item/*" element={<Lesson></Lesson>} />
           <Route path="/card/*" element={<Card></Card>} />
-          <Route path="/learningL1" element={<LearningLevle1></LearningLevle1>} />
-          <Route path="/learningL2" element={<LearningLevle2></LearningLevle2>} />
+          <Route path="/learningL1/*" element={<LearningLevle1></LearningLevle1>} />
+          <Route path="/learningL2/*" element={<LearningLevle2></LearningLevle2>} />
           <Route path="/createLesson" element={<CreateLesson></CreateLesson>} />
           <Route path="/login" element={<Login></Login>} />
           <Route path="/register" element={<Register></Register>} />

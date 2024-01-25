@@ -31,7 +31,7 @@ export default function UsersLessons({ userData }: { userData: IUserData }) {
                         className={styles.item}
                         key={i}
                     >
-                        <h1 className={styles.name}>{e.lessons.name}</h1>
+                        <h1 className={styles.name}>{e.lesson.name}</h1>
                     </Link>)
             })}
         </div >
