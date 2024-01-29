@@ -1,26 +1,18 @@
-import { useEffect, useRef, useState } from "react";
-import { loginVerification } from "../post/postLoginVerification";
+import { useRef, useState } from "react";
 import styles from "./Settings.module.css"
 import { config } from "../config";
 
-export default function LabelSetting({setSelectedImage}: { setSelectedImage: (file: File | null) => void }) {
+interface ISettingProps {
+    setSelectedImage: (file: File | null) => void;
+    userName: string;
+}
+
+export default function LabelSetting({ setSelectedImage, userName }: ISettingProps) {
     const [isHover, setHover] = useState(false);
     const [isBackgroundHover, setBackgroundHover] = useState(false);
     const [isBackgroundImageHover, setBackgroundImageHover] = useState(false);
     const [isImg, setImg] = useState(false);
     const ref = useRef(null)
-
-    const [userData, setUserData] = useState({
-        name: '',
-        id: -1,
-        email: '',
-        role: '',
-    })
-
-    useEffect(() => {
-        loginVerification(setUserData)
-    }, []);
-
 
     const setHovers = (value: boolean) => {
         setHover(value);
@@ -75,7 +67,7 @@ export default function LabelSetting({setSelectedImage}: { setSelectedImage: (fi
                 className={isImg ? `${styles.imgHover} ${styles.img}` : styles.img}
                 alt="icon"
                 width={"250px"}
-                src={`${config.linkInBack}/load/icon/${userData.name}`}
+                src={`${config.linkInBack}/load/icon/${userName}`}
             />
             <div className={isBackgroundHover ? `${styles.backgroundHover} ${styles.background}` : styles.background}>
                 <div className={isBackgroundImageHover ? `${styles.backgroundImageHover} ${styles.backgroundImage}` : styles.backgroundImage}></div>

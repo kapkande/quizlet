@@ -1,6 +1,4 @@
 
-import { Link } from 'react-router-dom';
-import styles from './ChooseLesson.module.css'
 import { useCheckVerification } from "../hucsk/useCheckVerification";
 import Lessons from './Lessons';
 import UsersLessons from './UsersLessons';
@@ -11,12 +9,7 @@ export default function ChooseLesson() {
     return (
         <>
             <Lessons></Lessons>
-            {isUser &&
-                <Link
-                    to="/createLesson" className={styles.item}>
-                    <h1 className={styles.name}>Create lessons</h1>
-                </Link>}
-            {isUser && <UsersLessons userData={userData}></UsersLessons>}
+            {isUser && <UsersLessons userData={userData} isUser={isUser}></UsersLessons>}
         </>
     )
 }

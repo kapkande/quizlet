@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 
 export default function Lesson() {
     const search = useLocation().search;
+    console.log(1);
     const userName = '/' + useLocation().pathname.split('/').reverse()[0];
 
     // const { lesson, loading, error } = useLesson(search);

@@ -9,7 +9,11 @@ interface IUserData {
     email: string;
     role: string;
 }
-export default function UsersLessons({ userData }: { userData: IUserData }) {
+interface IUsersLessons {
+    userData: IUserData
+    isUser: boolean
+}
+export default function UsersLessons({ userData, isUser }: IUsersLessons) {
     const { usersLessons, loading, error } = useUsersLessons(userData.name);
     if (loading) {
         return (<h1>loading...</h1>)
@@ -21,6 +25,7 @@ export default function UsersLessons({ userData }: { userData: IUserData }) {
 
     return (
         <div className={styles.items}>
+            <div className={styles.line}>Your lessons</div>
             {usersLessons.map((e: any, i: number) => {
                 return (
                     <Link
@@ -32,8 +37,15 @@ export default function UsersLessons({ userData }: { userData: IUserData }) {
                         key={i}
                     >
                         <h1 className={styles.name}>{e.lesson.name}</h1>
-                    </Link>)
+                    </Link>
+                )
             })}
+            {isUser &&
+                <Link
+                    to="/createLesson" className={styles.item}>
+                    <h1 className={styles.name}>Create lessons</h1>
+                </Link>
+            }
         </div >
     )
 }

@@ -10,13 +10,14 @@ import { Register } from "./conponents/logAndReg/Register";
 import { Login } from "./conponents/logAndReg/Login";
 import { ListOfUsers } from "./conponents/listOfUsers/listOfUsers";
 import Settings from "./conponents/Settings/Settings";
+import { PopupAuth } from "./conponents/popupAuth/PopupAuth";
 
 export default function App() {
-
   return (
     <main>
       <Nav></Nav>
       <div className="wrapper">
+        <PopupAuth></PopupAuth>
         <Routes>
           <Route path="/" element={<ChooseLessons></ChooseLessons>} />
           <Route path="/item/*" element={<Lesson></Lesson>} />

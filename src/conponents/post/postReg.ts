@@ -1,5 +1,5 @@
 import axios, { AxiosError } from "axios";
-import { config  } from "../config";
+import { config } from "../config";
 
 interface iReg {
     email: string
@@ -9,6 +9,7 @@ interface iReg {
 
 export async function postReg(data: iReg) {
     const link: string = `${config.linkInBack}/auth/registration`
+    
     if (data.name == '') { return }
     try {
         console.log(data);
@@ -19,10 +20,11 @@ export async function postReg(data: iReg) {
                 password: data.password
             }
         });
-        // console.log(respons.data);
+
+        console.log(respons.data);
         if (respons.data == 'Account created successfully') {
-            console.log(1);
-          }
+
+        }
     } catch (e: unknown) {
         const error = e as AxiosError
         return error

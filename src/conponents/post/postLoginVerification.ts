@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { config } from "../config";
 
 interface Idata {
@@ -12,13 +12,12 @@ export async function loginVerification(setData: React.Dispatch<React.SetStateAc
     const tocen = document.cookie.split('=')[1];
     if (!tocen || tocen == 'undefined') { return }
     const link: string = ` ${config.linkInBack}/auth/user`
-
-    await axios.post(link, {}, {
-        headers: {
-            tocen: tocen
-        }
-    })
-        .then(res => {
+    try {
+       await axios.post(link, {}, {
+            headers: {
+                tocen: tocen
+            }
+        }).then(res => {
             const data: Idata = {
                 name: res.data.userName,
                 id: res.data.id,
@@ -30,7 +29,8 @@ export async function loginVerification(setData: React.Dispatch<React.SetStateAc
             setData(data);
             return data
         })
-        .catch(error => {
-            console.error(error.response.data);
-        });
+    } catch (e: unknown) {
+        const error = e as AxiosError
+        return error
+    }
 }

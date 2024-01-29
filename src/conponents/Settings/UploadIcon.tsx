@@ -1,27 +1,18 @@
-import { useEffect, useState } from "react";
-import { loginVerification } from "../post/postLoginVerification";
+import { useState } from "react";
 import styles from "./Settings.module.css"
 import axios from "axios";
 import { config } from "../config";
 import LabelSetting from "./labelSetting";
 
-export default function UploadIcon() {
+interface IUserName{
+    userName:string
+}
+
+export default function UploadIcon({userName}:IUserName) {
     const [isLoad, setLoad] = useState(false);
 
     const [selectedImage, setSelectedImage] = useState<File | null>(null);
     const link: string = `${config.linkInBack}/load/uploadIcon`;
-    const [userData, setUserData] = useState({
-        name: '',
-        id: -1,
-        email: '',
-        role: '',
-    })
-
-    useEffect(() => {
-        loginVerification(setUserData)
-    }, []);
-
-    if (userData.role.length < 1) { return <h1>First you need to sign in</h1> }
 
     async function hendlerUpLoad() {
         if (!selectedImage) { alert("Please select a file"); return }
@@ -43,7 +34,7 @@ export default function UploadIcon() {
             const response = await axios.post(link, formData, {
                 headers: {
                     tocen: tocen,
-                    userName: userData.name,
+                    userName: userName,
                 },
                 onUploadProgress: onUploadProgress,
             });
@@ -56,7 +47,7 @@ export default function UploadIcon() {
 
     return (
         <div className={styles.setting}>
-            <LabelSetting setSelectedImage={setSelectedImage} ></LabelSetting>
+            <LabelSetting setSelectedImage={setSelectedImage} userName={userName} ></LabelSetting>
             {selectedImage &&
                 <>
                     <button className={styles.button} onClick={() => setSelectedImage(null)}>Remove</button>

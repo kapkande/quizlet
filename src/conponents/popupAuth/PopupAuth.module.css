@@ -1,0 +1,16 @@
+.wrapper {
+    width: 320px;
+    border: 2px solid;
+    border-radius: 5%;
+    margin: 0 auto;
+}
+form{
+    margin: 0 auto;
+    padding: 10px 10px;
+}
+input {
+    width: 100%;
+    font-size: 16px;
+    height: 20px;
+    border: none;
+}

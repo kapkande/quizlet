@@ -4,9 +4,9 @@ import UploadIcon from "./UploadIcon";
 
 
 export default function Settings() {
-    // const [isAdmin, setAdmin] = useState(false);
-    // const [isUser, setUser] = useState(false);
-    
+    const [isAdmin, setAdmin] = useState(false);
+    const [isUser, setUser] = useState(false);
+    console.log(isAdmin);
     const [userData, setUserData] = useState({
         name: '',
         id: -1,
@@ -15,17 +15,15 @@ export default function Settings() {
     })
 
     useEffect(() => {
-        loginVerification(setUserData)
+        loginVerification(setUserData, setAdmin, setUser)
     }, []);
 
-    if (userData.role.length < 1) { return <h1>First you need to sign in</h1> }
-
+    if (!isUser) { return <h1>First you need to sign in</h1> }
 
     return (
         <>
-        <UploadIcon></UploadIcon>
-        <h2>{userData.name}</h2>
+            <UploadIcon userName={userData.name}></UploadIcon>
+            <h2>{userData.name}</h2>
         </>
-
     )
 }

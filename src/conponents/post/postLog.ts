@@ -16,6 +16,7 @@ export async function postLog(data: iReg) {
                 password: data.password
             }
         }).then((r) => {
+            console.log(`tocen=${r.data.token}`);
             document.cookie = `tocen=${r.data.token}`
             text = r.data.text
         })
