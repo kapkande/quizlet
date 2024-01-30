@@ -1,16 +1,119 @@
 .wrapper {
-    width: 320px;
-    border: 2px solid;
-    border-radius: 5%;
-    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: translateY 0.5s;
+    transform: translateY(-101%);
 }
-form{
+
+.wrapperActive {
+    opacity: 1;
+    background-color: #464f5775;
+    transform: translateY(0);
+    transition: translateY 0.5s;
+}
+
+.popupAuth {
+    width: 720px;
+    margin: 0 auto;
+    transform: translateY(-101%);
+    transition: all 0.5s;
+    background-color: #0c2222f3;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url('../../assets/popupAuth/background-sky.jpg');
+    padding: 15px;
+    font-size: 18px;
+}
+
+.popupAuthActive {
+    transform: translateY(28%);
+    transition: all 0.5s;
+}
+
+form {
+    background-color: white;
     margin: 0 auto;
     padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
-input {
+
+.button {
+    display: block;
+    padding: 10px 50px;
+    margin: 18px auto;
+    border: 2px solid;
+}
+
+.imegeBlock {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.formBlock {
+    background-color: aliceblue;
+    width: 350px;
+    position: relative;
+    top: 2%;
+    margin: 15px 0;
+}
+
+.imegeText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 50%;
+    justify-content: center;
+    gap: 15px;
+}
+
+.imegebutton {
+    border-radius: 20px;
+    padding: 10px 20px;
+    border: 2px solid;
+    font-size: 20px;
+    color: aliceblue;
+}
+
+.input {
     width: 100%;
+    border-bottom: 2px solid black;
+    border-radius: 2px;
+    font-size: 20px;
+
+}
+
+label {
+    color: #0e0e0eeb;
     font-size: 16px;
-    height: 20px;
-    border: none;
+}
+
+.ReCAPTCHA {
+    width: 304px;
+    margin: 0 auto;
+}
+
+.buttonBotton {
+    color: #6d6d6d;
+}
+
+@media (max-width: 790px) {
+    .popupAuth {
+        width: 320px;
+        padding: 0;
+    }
+
+    .imegeText {
+        display: none;
+    }
+
+    .formBlock {
+        margin: 0;
+    }
 }

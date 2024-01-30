@@ -11,13 +11,18 @@ import { Login } from "./conponents/logAndReg/Login";
 import { ListOfUsers } from "./conponents/listOfUsers/listOfUsers";
 import Settings from "./conponents/Settings/Settings";
 import { PopupAuth } from "./conponents/popupAuth/PopupAuth";
+import { useState } from "react";
 
 export default function App() {
+  const [isPopup, setPopup] = useState(false);
+  const [isSignIn, setPopupSignIn] = useState(false);
+  const [isSignUp, setPopupSignUp] = useState(false);
+
   return (
     <main>
-      <Nav></Nav>
+      <Nav setPopupSignIn={setPopupSignIn} setPopupSignUp={setPopupSignUp} setPopup={setPopup}></Nav>
       <div className="wrapper">
-        <PopupAuth></PopupAuth>
+        <PopupAuth setPopupSignIn={setPopupSignIn} setPopupSignUp={setPopupSignUp} isPopup={isPopup} setPopup={setPopup} isSignIn={isSignIn} isSignUp={isSignUp}></PopupAuth>
         <Routes>
           <Route path="/" element={<ChooseLessons></ChooseLessons>} />
           <Route path="/item/*" element={<Lesson></Lesson>} />

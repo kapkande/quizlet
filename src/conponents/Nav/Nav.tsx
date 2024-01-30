@@ -3,10 +3,25 @@ import styles from './Nav.module.css'
 import { config } from "../config";
 import { useCheckVerification } from "../hucsk/useCheckVerification";
 
+interface INav {
+    setPopupSignIn: React.Dispatch<React.SetStateAction<boolean>>,
+    setPopupSignUp: React.Dispatch<React.SetStateAction<boolean>>,
+    setPopup: React.Dispatch<React.SetStateAction<boolean>>,
+}
 
-export default function Nav() {
+export default function Nav({ setPopupSignIn, setPopupSignUp, setPopup }: INav) {
     const { userData, isAdmin, isUser } = useCheckVerification();
-return (
+    function handleOpenPopup() {
+        setPopup(true);
+        setPopupSignUp(true);
+    }
+
+    function handleOpenPopin() {
+        setPopup(true);
+        setPopupSignIn(true);
+    }
+
+    return (
         <nav>
             <div className="wrapper">
                 <ul className={styles.items}>
@@ -15,10 +30,12 @@ return (
                     </li>
                     {!isUser && <ul className={styles.items}>
                         <li>
-                            <Link to="/login" className={styles.item}> Sign in </Link>
+                            <button className={styles.item} onClick={handleOpenPopin}>Sign in</button>
+                            {/* <Link to="/login" className={styles.item}> Sign in </Link> */}
                         </li>
                         <li>
-                            <Link to="/register" className={styles.item}> Sign up </Link>
+                            <button className={styles.item} onClick={handleOpenPopup}>Sign up</button>
+                            {/* <Link to="/register" className={styles.item}> Sign up </Link> */}
                         </li>
                     </ul>}
                     {isAdmin && <li>
@@ -43,6 +60,6 @@ return (
                         </li>}
                 </ul>
             </div>
-        </nav>
+        </nav >
     )
 }
