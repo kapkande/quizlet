@@ -6,18 +6,15 @@ import { useCheckVerification } from "../hucsk/useCheckVerification";
 interface INav {
     setPopupSignIn: React.Dispatch<React.SetStateAction<boolean>>,
     setPopupSignUp: React.Dispatch<React.SetStateAction<boolean>>,
-    setPopup: React.Dispatch<React.SetStateAction<boolean>>,
 }
 
-export default function Nav({ setPopupSignIn, setPopupSignUp, setPopup }: INav) {
+export default function Nav({ setPopupSignIn, setPopupSignUp }: INav) {
     const { userData, isAdmin, isUser } = useCheckVerification();
     function handleOpenPopup() {
-        setPopup(true);
         setPopupSignUp(true);
     }
 
     function handleOpenPopin() {
-        setPopup(true);
         setPopupSignIn(true);
     }
 

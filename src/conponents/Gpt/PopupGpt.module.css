@@ -1,0 +1,13 @@
+.requestForm input {
+    border: 1px solid aliceblue;
+    color: aliceblue;
+    width: 200px;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 10px;
+    background-color: #0e0d0d;
+
+}
+.requestForm button{
+    color: aliceblue;
+}

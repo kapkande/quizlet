@@ -8,13 +8,12 @@ interface IProps {
     setActiveButtonNextLevle: Dispatch<SetStateAction<boolean>>;
     setCarentIndexOfArrey: Dispatch<SetStateAction<number>>;
     carentIndexOfArrey: number
-    arreyQuizFalse: any;
     setArreyQuizFalse: React.Dispatch<React.SetStateAction<any[]>>;
     setActiveButton: Dispatch<SetStateAction<boolean>>;
     isActiveButton: boolean;
 }
 
-const CardBlock: React.FC<IProps> = ({ setActiveButton, isActiveButton, arreyQuizFalse, setArreyQuizFalse, arreyQuiz, setActiveButtonNextLevle, carentIndexOfArrey, setCarentIndexOfArrey }: IProps) => {
+const CardBlock: React.FC<IProps> = ({ setActiveButton, isActiveButton, setArreyQuizFalse, arreyQuiz, setActiveButtonNextLevle, carentIndexOfArrey, setCarentIndexOfArrey }: IProps) => {
     const [activeButtonNext, setActiveButtonNext] = useState(false);
     const [arreyIndexsOfAnswers, setArreyIndexsOfAnswers] = useState<number[]>([]);
 

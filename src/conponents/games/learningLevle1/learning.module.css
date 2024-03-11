@@ -6,11 +6,13 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
 }
-.gameblock{
+
+.gameblock {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .wrap {
     display: flex;
     flex-direction: column;
@@ -27,17 +29,24 @@
     cursor: pointer;
 }
 
+.answersItem:hover {
+    box-shadow: inset 2px 2px 30px rgb(99, 24, 185), 2px 2px 10px rgba(225, 0, 255, 0.5);
+}
+
 .answerList {
     display: flex;
     gap: 5px;
     flex-wrap: wrap;
 }
+
 ul {
     padding: 0;
 }
-.activeButton{
+
+.activeButton {
     background-color: #291f3f;
 }
-.rightAnswer{
+
+.rightAnswer {
     background-color: #1e4e1d;
 }

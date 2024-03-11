@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { useLessons } from '../hucsk/useLessons'
+import { useLessons } from '../../hucsk/useLessons'
 import styles from './ChooseLesson.module.css'
 
 export default function Lessons() {

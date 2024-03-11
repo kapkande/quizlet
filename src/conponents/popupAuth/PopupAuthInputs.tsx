@@ -13,16 +13,28 @@ export function PopupAuthInputs({ name, password, email, isSignUp, setName, setP
         <>
             <label>
                 name
-                <input className={styles.input} type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                <input
+                    // placeholder="enter your name"
+                    className={styles.input}
+                    type="text" value={name}
+                    onChange={(e) => setName(e.target.value)} />
             </label>
             <label>
                 password
-                <input className={styles.input} type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <input
+                    // placeholder="enter your password" 
+                    className={styles.input}
+                    type="password" value={password}
+                    onChange={(e) => setPassword(e.target.value)} />
             </label>
             {isSignUp &&
                 <label>
                     email
-                    <input className={styles.input} type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    <input
+                        // placeholder="enter your email"
+                        className={styles.input}
+                        type="text" value={email}
+                        onChange={(e) => setEmail(e.target.value)} />
                 </label>
             }
         </>

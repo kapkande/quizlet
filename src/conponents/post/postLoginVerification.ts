@@ -9,11 +9,11 @@ interface Idata {
 }
 
 export async function loginVerification(setData: React.Dispatch<React.SetStateAction<Idata>>, setAdmin: React.Dispatch<React.SetStateAction<boolean>>, setUser: React.Dispatch<React.SetStateAction<boolean>>) {
-    const tocen = document.cookie.split('=')[1];
+    const tocen = document.cookie.split(';').find(cookie => cookie.includes('tocen'))?.split('=')[1];
     if (!tocen || tocen == 'undefined') { return }
     const link: string = ` ${config.linkInBack}/auth/user`
     try {
-       await axios.post(link, {}, {
+        await axios.post(link, {}, {
             headers: {
                 tocen: tocen
             }
@@ -30,6 +30,7 @@ export async function loginVerification(setData: React.Dispatch<React.SetStateAc
             return data
         })
     } catch (e: unknown) {
+        document.cookie = `tocen=''`
         const error = e as AxiosError
         return error
     }

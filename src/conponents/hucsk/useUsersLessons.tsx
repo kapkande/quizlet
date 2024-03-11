@@ -1,7 +1,6 @@
 import axios, { AxiosError } from "axios";
 import { useEffect, useState } from "react";
 import { config } from "../config";
-import { useCheckVerification } from "./useCheckVerification";
 interface Idata {
     data: string[],
     name: string,
@@ -16,7 +15,7 @@ export function useUsersLessons(userName: string) {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const link: string = `${config.linkInBack}/data/user/${userName}`
-console.log(link);
+    // console.log(link);
     async function fetchProduct() {
         try {
             setError('')

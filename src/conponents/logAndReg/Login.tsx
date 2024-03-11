@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { postLog } from "../post/postLog";
-import InfoPopup from "../InfoPopup/InfoPopup";
+import InfoPopup from "../main/InfoPopup/InfoPopup";
 import { useNavigate } from 'react-router-dom';
 import ReCAPTCHA from "react-google-recaptcha";
 import { config } from "../config";

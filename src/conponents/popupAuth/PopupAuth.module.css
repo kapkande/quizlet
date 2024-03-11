@@ -21,12 +21,40 @@
     margin: 0 auto;
     transform: translateY(-101%);
     transition: all 0.5s;
-    background-color: #0c2222f3;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-image: url('../../assets/popupAuth/background-sky.jpg');
+    background-color: black;
     padding: 15px;
     font-size: 18px;
+    overflow: hidden;
+}
+
+.backgroundImage {
+
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    transform: rotateX(var(--move-y)) rotateY(var(--move-x));
+    position: absolute;
+}
+
+.image1 {
+    position: absolute;
+    top: 0;
+    background-image: url('../../assets/popupAuth/background-sky.png');
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.image2 {
+    position: absolute;
+    top: 0;
+    background-image: url('../../assets/popupAuth/background-sky-1.png');
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    transform: scale(0.5);
 }
 
 .popupAuthActive {
@@ -34,13 +62,18 @@
     transition: all 0.5s;
 }
 
-form {
+.form {
     background-color: white;
     margin: 0 auto;
     padding: 10px 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    height: 370px;
+}
+
+.buttonBlock {
+    margin-block-start: auto;
 }
 
 .button {
@@ -48,6 +81,30 @@ form {
     padding: 10px 50px;
     margin: 18px auto;
     border: 2px solid;
+}
+
+.imegebutton:hover {
+    border: 2px solid rgb(148 32 178);
+    box-shadow: inset 2px 2px 5px rgba(140, 16, 156, 0.5),
+        1px 1px 5px rgb(119, 12, 241);
+
+}
+
+.imegebutton:hover {
+    box-shadow: inset 2px 2px 5px rgba(140, 16, 156, 0.5),
+        1px 1px 5px rgb(119, 12, 241);
+}
+
+.button:hover {
+    border: 2px solid rgb(148 32 178);
+    box-shadow: inset 2px 2px 5px rgba(140, 16, 156, 0.5),
+        1px 1px 5px rgb(119, 12, 241);
+    color: rgb(148 32 178);
+}
+
+.buttonBotton:hover {
+    filter: drop-shadow(2px 0px 5px rgba(140, 16, 156, 0.5));
+    color: rgb(148 32 178);
 }
 
 .imegeBlock {
@@ -60,8 +117,8 @@ form {
     background-color: aliceblue;
     width: 350px;
     position: relative;
-    top: 2%;
     margin: 15px 0;
+    transition: all 0.5s ease-in-out;
 }
 
 .imegeText {
@@ -86,7 +143,6 @@ form {
     border-bottom: 2px solid black;
     border-radius: 2px;
     font-size: 20px;
-
 }
 
 label {
@@ -94,13 +150,21 @@ label {
     font-size: 16px;
 }
 
+.input:focus,
+.input:hover {
+    border-bottom: 2px solid rgb(196 2 246);
+}
+
 .ReCAPTCHA {
     width: 304px;
     margin: 0 auto;
+    filter: drop-shadow(1px 1px 5px rgba(143, 25, 158, 0.5));
 }
 
 .buttonBotton {
     color: #6d6d6d;
+    display: block;
+    margin: 0 auto;
 }
 
 @media (max-width: 790px) {

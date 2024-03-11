@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { postUsers } from "../post/postUsers"
+import { postUsers } from "../../post/postUsers"
 import styles from "./listOfUsers.module.css"
 import { postChangePermission } from "./postChangePermission";
 

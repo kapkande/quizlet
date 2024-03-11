@@ -1,7 +1,7 @@
 // InputBlocks.tsx
 import { useState } from "react";
 import { InputBlock } from "./CreateInputs";
-import { postCreateLesson } from "../post/postCreateLesson";
+import { postCreateLesson } from "../../post/postCreateLesson";
 
 export default function InputBlocks() {
  

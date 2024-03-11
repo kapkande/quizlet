@@ -1,5 +1,5 @@
 
-import { useCheckVerification } from "../hucsk/useCheckVerification";
+import { useCheckVerification } from "../../hucsk/useCheckVerification";
 import Lessons from './Lessons';
 import UsersLessons from './UsersLessons';
 

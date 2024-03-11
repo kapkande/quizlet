@@ -1,28 +1,29 @@
 import { Route, Routes } from "react-router-dom";
-import ChooseLessons from './conponents/ChooseLesson/ChooseLesson'
-import Lesson from './conponents/lesson/lesson'
+import Lesson from './conponents/main/lesson/lesson'
+import ChooseLessons from './conponents/main/ChooseLesson/ChooseLesson';
+import CreateLesson from './conponents/main/CreateLesson/CreateLesson';
 import Nav from './conponents/Nav/Nav';
 import LearningLevle2 from './conponents/games/learningLevle2/learningLevle2';
 import LearningLevle1 from './conponents/games/learningLevle1/learningLevle1';
 import Card from './conponents/games/card/Card';
-import CreateLesson from "./conponents/CreateLesson/CreateLesson";
 import { Register } from "./conponents/logAndReg/Register";
 import { Login } from "./conponents/logAndReg/Login";
-import { ListOfUsers } from "./conponents/listOfUsers/listOfUsers";
+import { ListOfUsers } from "./conponents/main/listOfUsers/listOfUsers";
 import Settings from "./conponents/Settings/Settings";
 import { PopupAuth } from "./conponents/popupAuth/PopupAuth";
 import { useState } from "react";
+import { PopupGpt } from "./conponents/Gpt/PopupGpt";
 
 export default function App() {
-  const [isPopup, setPopup] = useState(false);
   const [isSignIn, setPopupSignIn] = useState(false);
   const [isSignUp, setPopupSignUp] = useState(false);
 
   return (
-    <main>
-      <Nav setPopupSignIn={setPopupSignIn} setPopupSignUp={setPopupSignUp} setPopup={setPopup}></Nav>
-      <div className="wrapper">
-        <PopupAuth setPopupSignIn={setPopupSignIn} setPopupSignUp={setPopupSignUp} isPopup={isPopup} setPopup={setPopup} isSignIn={isSignIn} isSignUp={isSignUp}></PopupAuth>
+    <div className="wrapper">
+      <Nav setPopupSignIn={setPopupSignIn} setPopupSignUp={setPopupSignUp}></Nav>
+      <main>
+        <PopupAuth setPopupSignIn={setPopupSignIn} setPopupSignUp={setPopupSignUp} isSignIn={isSignIn} isSignUp={isSignUp}></PopupAuth>
+        <PopupGpt></PopupGpt>
         <Routes>
           <Route path="/" element={<ChooseLessons></ChooseLessons>} />
           <Route path="/item/*" element={<Lesson></Lesson>} />
@@ -35,7 +36,7 @@ export default function App() {
           <Route path="/users" element={<ListOfUsers></ListOfUsers>} />
           <Route path="/settings" element={<Settings></Settings>} />
         </Routes>
-      </div>
-    </main>
+      </main>
+    </div>
   )
 }

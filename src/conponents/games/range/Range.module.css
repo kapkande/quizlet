@@ -1,4 +1,5 @@
 .range {
+    /* margin-top: 5px; */
     display: flex;
     animation: stick 1s linear forwards;
 
@@ -12,7 +13,9 @@
 
 .stickActive {
     animation: anim 1s linear forwards;
-    background-color: rgb(47, 87, 122);
+    background-color: rgb(164, 6, 255);
+    box-shadow: 0px 2px 5px rgba(203, 25, 226, 0.5),
+    1px 1px 5px rgb(115, 0, 247);
 }
 
 @keyframes anim {
@@ -23,7 +26,9 @@
 
     100% {
         opacity: 1;
-        background-color: rgb(47, 87, 122);
+        background-color: rgb(148 32 178);
+        /* box-shadow: inset 10px 10px 5px rgb(225, 0, 255),
+        2px 2px 5px rgb(226, 2, 255); */
     }
 }
 

@@ -47,7 +47,6 @@ export default function Learning() {
                         setActiveButtonNextLevle={setActiveButtonNextLevle}
                         carentIndexOfArrey={carentIndexOfArrey}
                         setCarentIndexOfArrey={setCarentIndexOfArrey}
-                        arreyQuizFalse={arreyQuizFalse}
                         setArreyQuizFalse={setArreyQuizFalse}
                         isActiveButton={isActiveButton}
                         setActiveButton={setActiveButton}

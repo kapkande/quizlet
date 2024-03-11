@@ -43,6 +43,11 @@ input {
     overflow: visible;
     outline: none;
     cursor: pointer;
+    transition: all 0.5s;
+}
+
+button:hover {
+    transition: all 0.2s;
 }
 
 p {
@@ -54,3 +59,4 @@ p {
     max-width: 1200px;
     margin: 0 auto;
 }
+form {}

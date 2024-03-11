@@ -3,12 +3,27 @@ nav {
     margin: 0;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
-    border-bottom: 1px solid white;
 }
 
 .item {
     color: aliceblue;
+    position: relative;
+}
 
+.item::after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    transition: all 0.5s;
+}
+
+.item:hover::after {
+    background-color: rgb(164, 6, 255);
+    box-shadow: 0px 2px 5px rgba(203, 25, 226, 0.5),
+    1px 1px 5px rgb(115, 0, 247);
+    border-radius: 5px;
 }
 
 .userBlock {

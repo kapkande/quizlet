@@ -12,7 +12,7 @@ interface Idata {
 }
 
 export async function postUsers(setData: React.Dispatch<React.SetStateAction<Idata[]>>) {
-    const tocen = document.cookie.split('=')[1];
+    const tocen = document.cookie.split(';').find(cookie => cookie.includes('tocen'))?.split('=')[1];
     if (!tocen || tocen == 'undefined') { return }
     const link: string = ` ${config.linkInBack}/auth/users`
 
