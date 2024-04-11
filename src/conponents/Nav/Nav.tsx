@@ -1,15 +1,18 @@
 import { Link } from "react-router-dom";
 import styles from './Nav.module.css'
 import { config } from "../config";
-import { useCheckVerification } from "../hucsk/useCheckVerification";
+import { IUserData } from "../basicIntesfaces/userData";
+
 
 interface INav {
     setPopupSignIn: React.Dispatch<React.SetStateAction<boolean>>,
     setPopupSignUp: React.Dispatch<React.SetStateAction<boolean>>,
+    userData: IUserData,
+    isAdmin: boolean,
+    isUser: boolean
 }
 
-export default function Nav({ setPopupSignIn, setPopupSignUp }: INav) {
-    const { userData, isAdmin, isUser } = useCheckVerification();
+export default function Nav({ setPopupSignIn, setPopupSignUp, userData, isAdmin, isUser }: INav) {
     function handleOpenPopup() {
         setPopupSignUp(true);
     }
@@ -28,11 +31,9 @@ export default function Nav({ setPopupSignIn, setPopupSignUp }: INav) {
                     {!isUser && <ul className={styles.items}>
                         <li>
                             <button className={styles.item} onClick={handleOpenPopin}>Sign in</button>
-                            {/* <Link to="/login" className={styles.item}> Sign in </Link> */}
                         </li>
                         <li>
                             <button className={styles.item} onClick={handleOpenPopup}>Sign up</button>
-                            {/* <Link to="/register" className={styles.item}> Sign up </Link> */}
                         </li>
                     </ul>}
                     {isAdmin && <li>

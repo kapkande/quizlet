@@ -1,13 +1,148 @@
 .requestForm input {
     border: 1px solid aliceblue;
     color: aliceblue;
-    width: 200px;
+    letter-spacing: 0.5px;
     padding: 10px;
     margin: 5px 0;
     border-radius: 10px;
     background-color: #0e0d0d;
-
+    flex: 1 1;
 }
-.requestForm button{
+
+.requestForm {
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.sendButton[placeholder] {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+.sendButton {
     color: aliceblue;
+    margin: 0 1px 0 6px;
+    border-radius: 50%;
+    padding: 2px;
+}
+
+.sendButton:hover,
+.open:hover,
+.close button:hover {
+    /* background-color: rgb(69, 43, 131); */
+    box-shadow: inset 2px 2px 50px rgba(48, 4, 54, 0.212), 2px 2px 50px rgb(119, 12, 241);
+}
+
+.sendButton {
+    background-image: url('../../assets/send.svg');
+    width: 40px;
+    height: 40px;
+    background-position: center;
+    background-size: 70%;
+    background-repeat: no-repeat;
+}
+
+.bot,
+.user {
+    display: flex;
+}
+
+.user {
+    justify-content: flex-end;
+}
+
+.bot {
+    justify-content: flex-start;
+}
+
+.message {
+    letter-spacing: 0.5px;
+    border-radius: 5px;
+    padding: 2px 10px;
+    margin: 10px;
+    max-width: 70%;
+    font-size: 17px;
+}
+
+.user .message {
+    background-color: rgb(69, 43, 131);
+}
+
+.bot .message {
+    background-color: rgb(33, 24, 41);
+}
+
+.responseBlock {
+    overflow-y: scroll;
+    scroll-snap-stop: always;
+}
+
+.responseBlock::-webkit-scrollbar {
+    display: none;
+}
+
+.wrap {
+    max-width: 320px;
+    padding: 1% 1%;
+    border-radius: 5px;
+    border: 1px solid;
+    background-color: rgba(12, 5, 9, 0.938);
+    position: relative;
+}
+
+.chat {
+    display: flex;
+    flex-direction: column-reverse;
+    position: fixed;
+    bottom: -101%;
+    right: -101%;
+    transition: 0.2s;
+}
+
+.chatActive {
+    bottom: 0;
+    right: 0;
+}
+
+.close {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.close button {
+    background-image: url('../../assets/close.svg');
+    background-position: center;
+    background-size: 90%;
+    background-repeat: no-repeat;
+    margin: 5px;
+    border-radius: 50%;
+    padding: 17px;
+}
+
+.open {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+    background-image: url('../../assets/chat.svg');
+    width: 40px;
+    height: 40px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    border-radius: 50%;
+    padding: 5px;
+    margin: 5px;
+}
+
+.line {
+    position: absolute;
+    z-index: 10;
+    width: 97%;
+    height: 5px;
+    top: 0;
+    cursor: row-resize;
 }

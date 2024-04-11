@@ -1,46 +1,37 @@
-.item {
-    background-color: rgb(12, 47, 61);
-    
-    height: 250px;
-    margin: 2%;
-    text-align: center;
-    border: 5px solid aliceblue;
-    border-radius: 10px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    flex: 1 0 500px;
-}
-
-.term {
-    font-size: 32px;
-}
 
 .description {
     font-size: 26px;
 }
-
+.input {
+    border: 1px solid aliceblue;
+    color: aliceblue;
+    letter-spacing: 0.5px;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 10px;
+}
 .button {
     width: 50px;
     height: 50px;
-    /* background-color: aliceblue; */
     display: block;
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
     transition: all 0.5S;
 }
-.button:hover{
+
+.button:hover {
     background-size: 55%;
 }
-.buttonForward{
-background-image: url('../../../assets/arrowForward.svg');
+
+.buttonForward {
+    background-image: url('../../../assets/arrowForward.svg');
 }
-.buttonBack{
+
+.buttonBack {
     background-image: url('../../../assets/arrowBack.svg');
 }
+
 .wrap {
     display: flex;
     flex-direction: column;
@@ -52,15 +43,7 @@ background-image: url('../../../assets/arrowForward.svg');
     align-items: center;
 }
 
-.cardBlock {
-    display: flex;
-    overflow: hidden;
-    width: 518px;
-}
 @media (max-width: 650px) {
-    .item {
-        width: 200px;
-    }
     .gameblock {
         flex-direction: column;
     }

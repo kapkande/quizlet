@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { InputBlock } from "./CreateInputs";
 import { postCreateLesson } from "../../post/postCreateLesson";
+import styles from './Create.module.css'
 
 export default function InputBlocks() {
  
@@ -34,7 +35,7 @@ export default function InputBlocks() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <label>Lesson's name
                 <input type="text" value={isLessonName} onChange={(e)=>{setLessonName(e.currentTarget.value)}} />
             </label>
@@ -48,7 +49,7 @@ export default function InputBlocks() {
           onInputChange={handleInputChange}
         />
       ))}
-      <button type="button" onClick={handleAddBlock}>
+      <button  type="button" onClick={handleAddBlock}>
         Add Block
       </button>
       <button type="submit">Submit</button>

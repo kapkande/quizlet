@@ -2,13 +2,9 @@
 import { Link } from 'react-router-dom';
 import styles from './ChooseLesson.module.css'
 import { useUsersLessons } from '../../hucsk/useUsersLessons';
+import { IUserData } from '../../basicIntesfaces/userData';
 
-interface IUserData {
-    name: string;
-    id: number;
-    email: string;
-    role: string;
-}
+
 interface IUsersLessons {
     userData: IUserData
     isUser: boolean

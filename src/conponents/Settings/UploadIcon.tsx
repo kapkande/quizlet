@@ -3,12 +3,13 @@ import styles from "./Settings.module.css"
 import axios from "axios";
 import { config } from "../config";
 import LabelSetting from "./labelSetting";
+import { OvalButton } from "../buttons/ovalButton/OvalButton";
 
-interface IUserName{
-    userName:string
+interface IUserName {
+    userName: string
 }
 
-export default function UploadIcon({userName}:IUserName) {
+export default function UploadIcon({ userName }: IUserName) {
     const [isLoad, setLoad] = useState(false);
 
     const [selectedImage, setSelectedImage] = useState<File | null>(null);
@@ -25,8 +26,8 @@ export default function UploadIcon({userName}:IUserName) {
             const percentCompleted = Math.round((progressEvent.loaded / progressEvent.total) * 100);
             console.log(percentCompleted);
             if (percentCompleted === 100) {
-                location.reload();
                 setLoad(false);
+                location.reload();
             }
             console.log(isLoad);
         }
@@ -44,14 +45,16 @@ export default function UploadIcon({userName}:IUserName) {
             console.error('Upload Failed', error);
         }
     }
-
+    function setNullSelectedImage() {
+        setSelectedImage(null);
+    }
     return (
         <div className={styles.setting}>
-            <LabelSetting setSelectedImage={setSelectedImage} userName={userName} ></LabelSetting>
+            <LabelSetting setSelectedImage={setSelectedImage} userName={userName}></LabelSetting>
             {selectedImage &&
                 <>
-                    <button className={styles.button} onClick={() => setSelectedImage(null)}>Remove</button>
-                    <button className={styles.button} onClick={hendlerUpLoad}>Upload</button>
+                    <OvalButton fun={setNullSelectedImage}>Remove</OvalButton>
+                    <OvalButton fun={hendlerUpLoad}>Upload</OvalButton>
                 </>
             }
         </div>

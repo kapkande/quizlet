@@ -1,11 +1,11 @@
 import axios, { AxiosError } from "axios";
 import { config } from "../config";
 
-interface iReg {
+interface Ilog {
   password: string;
   name: string;
 }
-export async function postLog(data: iReg) {
+export async function postLog(data: Ilog) {
   let text = "";
   const link: string = `${config.linkInBack}/auth/login`;
   if (data.name == "") {
@@ -28,13 +28,13 @@ export async function postLog(data: iReg) {
           throw new Error("No token");
         }
         document.cookie = `tocen=${r.data.token}`;
-        document.cookie = `gTocen=${r.data.gToken}`;
         text = r.data.text;
+        return text;
       });
-    return text;
+   
   } catch (e: unknown) {
     const error = e as AxiosError;
     console.error(error.message);
-    return error.message;
+    // return error.message;
   }
 }

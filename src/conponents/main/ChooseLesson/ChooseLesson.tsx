@@ -1,11 +1,8 @@
 
-import { useCheckVerification } from "../../hucsk/useCheckVerification";
 import Lessons from './Lessons';
 import UsersLessons from './UsersLessons';
 
-
-export default function ChooseLesson() {
-    const { userData, isUser } = useCheckVerification();
+export default function ChooseLesson({userData, isUser}: {userData: any, isUser: boolean}) {
     return (
         <>
             <Lessons></Lessons>

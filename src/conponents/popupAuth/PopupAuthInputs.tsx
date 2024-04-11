@@ -1,5 +1,6 @@
 import styles from './PopupAuth.module.css'
 interface IPopupAuthInputs {
+    children: React.ReactNode;
     name: string
     password: string
     email: string

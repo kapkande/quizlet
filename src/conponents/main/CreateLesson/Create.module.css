@@ -1,0 +1,12 @@
+.form{
+    color: aliceblue;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.form input{
+    color: aliceblue;
+    border: 1px solid aliceblue;
+}
+.form button{
+    color: aliceblue;
+}

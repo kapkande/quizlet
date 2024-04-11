@@ -1,0 +1,65 @@
+.cardBlock {
+    display: flex;
+    overflow: hidden;
+    width: 518px;
+}
+
+.itemActive {
+    transform: rotateX(180deg);
+}
+
+.itemActive .term {
+    opacity: 1
+}
+
+.itemActive .description {
+    opacity: 0
+}
+
+.itemActive .description {
+    opacity: 0
+}
+
+.term {
+    font-size: 32px;
+    transform: rotateX(180deg);
+    opacity: 0;
+}
+
+.description {
+    padding: 0 10px;
+    font-size: 26px;
+}
+
+.term,
+.description {
+    position: absolute;
+}
+
+.item {
+    height: 250px;
+    margin: 2%;
+    text-align: center;
+    border: 2px solid aliceblue;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    flex: 1 0 500px;
+    perspective: 1000;
+    transition: all 0.3s;
+    position: relative;
+    z-index: -1;
+}
+
+.term {
+    font-size: 32px;
+}
+
+@media (max-width: 650px) {
+    .item {
+        width: 200px;
+    }
+}

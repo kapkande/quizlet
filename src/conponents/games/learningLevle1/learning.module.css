@@ -1,10 +1,15 @@
 .button {
     width: 50px;
     height: 50px;
-    background-color: aliceblue;
-    color: black;
+    border: 2px solid aliceblue;
+    color: aliceblue;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
+}
+
+.buttonBlock{
+    display: flex;
+    gap: 30px;
 }
 
 .gameblock {
@@ -20,33 +25,46 @@
 }
 
 .answersItem {
-    width: 150px;
-    background-color: rgb(0, 0, 0);
-    font-size: 18px;
-    text-align: center;
-    padding: 10px 0;
-    border: 2px solid aliceblue;
     cursor: pointer;
+    text-align: center;
+    width: 150px;
+    border-radius: 20px;
+    padding: 10px 20px;
+    border: 2px solid;
+    font-size: 18px;
+    color: aliceblue;
 }
 
 .answersItem:hover {
-    box-shadow: inset 2px 2px 30px rgb(99, 24, 185), 2px 2px 10px rgba(225, 0, 255, 0.5);
+    border: 2px solid rgb(148 32 178);
+    box-shadow: inset 2px 2px 5px rgba(140, 16, 156, 0.5),
+        1px 1px 5px rgb(119, 12, 241);
 }
 
 .answerList {
     display: flex;
     gap: 5px;
     flex-wrap: wrap;
+    margin-bottom: 4%;
+    justify-content: center;
 }
 
 ul {
     padding: 0;
 }
-
-.activeButton {
-    background-color: #291f3f;
+.answersItem:hover {
+    border: 2px solid rgb(148 32 178);
+    box-shadow: inset 2px 2px 5px rgba(140, 16, 156, 0.5),
+        1px 1px 5px rgb(119, 12, 241);
+}
+.activeButton, .activeButton:hover {
+    border: 2px solid rgb(110, 110, 110); 
+    box-shadow: inset 2px 2px 5px rgba(110, 110, 110, 0.5), 
+                1px 1px 5px rgb(110, 110, 110); 
 }
 
-.rightAnswer {
-    background-color: #1e4e1d;
+.rightAnswer, .rightAnswer:hover {
+    border: 2px solid rgb(107, 223, 77);
+    box-shadow: inset 2px 2px 5px rgba(107, 223, 77, 0.5),
+                1px 1px 5px rgb(107, 223, 77);
 }

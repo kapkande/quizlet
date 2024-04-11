@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from '../learning.module.css';
 import { generateRandomNumbers } from './generateRandomNumbers';
 import { Dispatch, SetStateAction } from 'react';
+import { OvalButton } from '../../../buttons/ovalButton/OvalButton';
 
 interface IProps {
     arreyQuiz: any;
@@ -13,13 +14,9 @@ interface IProps {
     isActiveButton: boolean;
 }
 
-const CardBlock: React.FC<IProps> = ({ setActiveButton, isActiveButton, setArreyQuizFalse, arreyQuiz, setActiveButtonNextLevle, carentIndexOfArrey, setCarentIndexOfArrey }: IProps) => {
+const AnswerList: React.FC<IProps> = ({ setActiveButton, isActiveButton, setArreyQuizFalse, arreyQuiz, setActiveButtonNextLevle, carentIndexOfArrey, setCarentIndexOfArrey }: IProps) => {
     const [activeButtonNext, setActiveButtonNext] = useState(false);
     const [arreyIndexsOfAnswers, setArreyIndexsOfAnswers] = useState<number[]>([]);
-
-
-    // const [carentIndexOfArrey, setCarentIndexOfArrey] = useState(0);
-
     useEffect(() => {
         createAnswerList();
     }, [carentIndexOfArrey]);
@@ -31,16 +28,7 @@ const CardBlock: React.FC<IProps> = ({ setActiveButton, isActiveButton, setArrey
         if (rightAnswer !== arreyQuiz[carentIndexOfArrey][0]) {
             setArreyQuizFalse(arreyQuizFalse => [...arreyQuizFalse, arreyQuiz[carentIndexOfArrey]])
         }
-
         setActiveButton(true);
-        // if (arreyQuiz.length < carentIndexOfArrey + 2 && arreyQuizClone.length) {
-        //     console.log(arreyQuiz.splice(0, arreyQuiz.length));
-        // setArreyQuizFalse([])
-        //     arreyQuiz.push(...arreyQuizClone)
-        //     console.log(arreyQuizClone);
-        //     return
-        // }
-
         if (arreyQuiz.length < carentIndexOfArrey + 2) {
             setActiveButtonNextLevle(true)
             return
@@ -59,25 +47,23 @@ const CardBlock: React.FC<IProps> = ({ setActiveButton, isActiveButton, setArrey
         setCarentIndexOfArrey(carentIndexOfArrey + 1)
     };
 
-
     return (
         <>
-            <h3 className={styles.subtitle}>{arreyQuiz[carentIndexOfArrey][1]}</h3>
             <ul className={styles.answerList}>
                 {arreyIndexsOfAnswers.map((e: number, i: number) => (
                     <li
                         onClick={handlerClick}
                         className={`${styles.answersItem} ${isActiveButton && styles.activeButton}
-                                     ${isActiveButton && carentIndexOfArrey === e ? styles.rightAnswer : ''}`}
+                                     ${isActiveButton && carentIndexOfArrey === e && styles.rightAnswer}`}
                         key={i}
                     >
                         {arreyQuiz[e][0]}
                     </li>
                 ))}
             </ul>
-            {activeButtonNext && <button className={styles.button} onClick={handlerButtonClickNext}>next</button>}
+            {activeButtonNext &&  <OvalButton fun={handlerButtonClickNext}>next</OvalButton>}
         </>
     );
 };
 
-export default CardBlock;
+export default AnswerList;

@@ -3,6 +3,7 @@ import { useLesson } from "../../hucsk/useLesson";
 import styles from './card.module.css'
 import { useState } from 'react'
 import Range from "../range/Range";
+import { RotateBlock } from "../rotateBlock/RotateBlock";
 
 export default function Card() {
     const { lesson, loading, error } = useLesson()
@@ -37,12 +38,7 @@ export default function Card() {
                         }
                         className={`${styles.button} ${styles.buttonBack}`}>
                     </button>
-                    <div onClick={() => setTermActive(pr => !pr)} className={`${styles.cardBlock} `}>
-                        <div className={`${styles.item} ${!termActive ? styles.itemActive : ''}`}>
-                            <div className={`${styles.term}`}>{arreyQuiz[indexActive][0]}</div>
-                            <div className={`${styles.description}`}>{arreyQuiz[indexActive][1]}</div>
-                        </div>
-                    </div>
+                    <RotateBlock isCardGame={true} setTermActive={setTermActive} termActive={termActive} indexActive={indexActive} arreyQuiz={arreyQuiz}></RotateBlock>
                     <button
                         onClick={
                             () => { setTermActive(true), handlerClick(+1) }

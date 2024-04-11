@@ -13,6 +13,7 @@ export function useCheckVerification() {
     });
     useEffect(() => {
         loginVerification(setUserData, setAdmin, setUser);
+       
      }, []);
     return { userData, isUser, isAdmin };
 }

@@ -1,14 +1,20 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .button {
     border-radius: 2%;
     cursor: pointer;
-    background-image: url('../../assets/edit.svg');
+    background-image: url('../../../assets/edit.svg');
     width: 20px;
     height: 20px;
     background-position: center;
     background-size: contain;
 }
 
-.button::after{
+.button::after {
     margin: 0 auto;
     transition: all 0.2s;
     background-color: aliceblue;
@@ -19,9 +25,29 @@
     width: 0%;
     top: 10px;
 }
-.button:hover:after{
+
+.button:hover:after {
     width: 100%
 }
-.buttonActive{
-    background-image: url('../../assets/save.svg');
+
+.buttonActive {
+    background-image: url('../../../assets/save.svg');
 }
+
+.input {
+    color: rgb(0, 5, 8);
+    width: 100%;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    line-height: unset;
+    border-bottom: 1px solid aliceblue;
+}
+
+
+.tr>td:nth-child(4) {
+
+    width: 50px;
+}
+
+

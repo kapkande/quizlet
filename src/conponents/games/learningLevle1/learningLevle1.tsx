@@ -3,7 +3,8 @@ import { useLesson } from "../../hucsk/useLesson";
 import styles from './learning.module.css';
 import { useState } from "react";
 import Range from "../range/Range";
-import CardBlock from "./cardBlock/CardBlock";
+import AnswerList from "./answerList/AnswerList";
+import { OvalButton } from "../../buttons/ovalButton/OvalButton";
 
 
 export default function Learning() {
@@ -35,14 +36,14 @@ export default function Learning() {
         setArreyQuizFalse([])
     }
 
-
     return (
         <div className={styles.learning}>
             <Range arreyQuiz={arreyQuiz} indexActive={carentIndexOfArrey}></Range>
             <div className={styles.wrap}>
                 <h1 className={styles.title}>{lesson.lesson.name}</h1>
+                <h3 className={styles.subtitle}>{arreyQuiz[carentIndexOfArrey][1]}</h3>
                 <div className={styles.gameblock}>
-                    <CardBlock
+                    <AnswerList
                         arreyQuiz={arreyQuiz}
                         setActiveButtonNextLevle={setActiveButtonNextLevle}
                         carentIndexOfArrey={carentIndexOfArrey}
@@ -50,29 +51,33 @@ export default function Learning() {
                         setArreyQuizFalse={setArreyQuizFalse}
                         isActiveButton={isActiveButton}
                         setActiveButton={setActiveButton}
-                    ></CardBlock>
+                    ></AnswerList>
                     {activeButtonNextLevle &&
-                        <div>
-                            <h3>You have made {arreyQuizFalse.length} {arreyQuizFalse.length === 0 ? 'mistake' : 'mistakes'}. You can see them from below.</h3>
-                            <ul>
-                                {arreyQuizFalse.map((arr: string[], i: number) => (
-                                    <li key={i}>
-                                        {arr[0]} - {arr[1]}
-                                    </li>
-                                ))}
-                            </ul>
-                            <h4>You can do it again or go to the next level.</h4>
-                        </div>
-                    }
-                    {activeButtonNextLevle && <button className={styles.button} onClick={handlerButtonClickAgain}>again</button>}
-                    {activeButtonNextLevle &&
-                        <Link to={{
-                            pathname: `/learningL2${userName}`,
-                            search: `id=${String(lesson.id)}`
-                        }}
-                            className={styles.button}>
-                            next leavel
-                        </Link>}
+                        <>
+                            <div>
+                                <h3>You have made {arreyQuizFalse.length} {arreyQuizFalse.length === 0 ? 'mistake' : 'mistakes'}. You can see them from below:</h3>
+                                <ul>
+                                    {arreyQuizFalse.map((arr: string[], i: number) => (
+                                        <li key={i}>
+                                            {arr[0]} - {arr[1]}
+                                        </li>
+                                    ))}
+                                </ul>
+                                <h4>You can do it again or go to the next level.</h4>
+                            </div>
+                            <div className={styles.buttonBlock}>
+                                <OvalButton fun={handlerButtonClickAgain}>again</OvalButton>
+                                <OvalButton>
+                                    <Link to={{
+                                        pathname: `/learningL2${userName}`,
+                                        search: `id=${String(lesson.id)}`
+                                    }}
+                                    >
+                                        next leavel
+                                    </Link>
+                                </OvalButton>
+                            </div>
+                        </>}
                 </div>
             </div>
         </div>

@@ -1,0 +1,14 @@
+.ovalButton {
+    border-radius: 20px;
+    padding: 10px 20px;
+    border: 2px solid;
+    font-size: 20px;
+    color: aliceblue;
+    margin: 15px 0;
+}
+
+.ovalButton:hover {
+    border: 2px solid rgb(148 32 178);
+    box-shadow: inset 2px 2px 5px rgba(140, 16, 156, 0.5),
+        1px 1px 5px rgb(119, 12, 241);
+}

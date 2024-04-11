@@ -1,0 +1,13 @@
+.squareButton {
+    display: block;
+    padding: 10px 50px;
+    margin: 18px auto;
+    border: 2px solid;
+}
+
+.squareButton:hover {
+    border: 2px solid rgb(148 32 178);
+    box-shadow: inset 2px 2px 5px rgba(140, 16, 156, 0.5),
+        1px 1px 5px rgb(119, 12, 241);
+    color: rgb(148 32 178);
+}

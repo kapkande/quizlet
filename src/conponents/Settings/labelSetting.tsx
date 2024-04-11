@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import styles from "./Settings.module.css"
 import { config } from "../config";
+// import { SquareButton } from "../buttons/squareButton/SquareButton";
 
 interface ISettingProps {
     setSelectedImage: (file: File | null) => void;

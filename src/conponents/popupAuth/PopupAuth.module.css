@@ -76,31 +76,31 @@
     margin-block-start: auto;
 }
 
-.button {
+/* .button {
     display: block;
     padding: 10px 50px;
     margin: 18px auto;
     border: 2px solid;
-}
-
-.imegebutton:hover {
+} */
+/* 
+.imegeButton:hover {
     border: 2px solid rgb(148 32 178);
     box-shadow: inset 2px 2px 5px rgba(140, 16, 156, 0.5),
         1px 1px 5px rgb(119, 12, 241);
 
 }
 
-.imegebutton:hover {
+.imegeButton:hover {
     box-shadow: inset 2px 2px 5px rgba(140, 16, 156, 0.5),
         1px 1px 5px rgb(119, 12, 241);
-}
+} */
 
-.button:hover {
+/* .button:hover {
     border: 2px solid rgb(148 32 178);
     box-shadow: inset 2px 2px 5px rgba(140, 16, 156, 0.5),
         1px 1px 5px rgb(119, 12, 241);
     color: rgb(148 32 178);
-}
+} */
 
 .buttonBotton:hover {
     filter: drop-shadow(2px 0px 5px rgba(140, 16, 156, 0.5));
@@ -121,7 +121,7 @@
     transition: all 0.5s ease-in-out;
 }
 
-.imegeText {
+.leftBar {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -130,13 +130,13 @@
     gap: 15px;
 }
 
-.imegebutton {
+/* .imegeButton {
     border-radius: 20px;
     padding: 10px 20px;
     border: 2px solid;
     font-size: 20px;
     color: aliceblue;
-}
+} */
 
 .input {
     width: 100%;
@@ -145,7 +145,7 @@
     font-size: 20px;
 }
 
-label {
+.form label {
     color: #0e0e0eeb;
     font-size: 16px;
 }
@@ -173,7 +173,7 @@ label {
         padding: 0;
     }
 
-    .imegeText {
+    .leftBar {
         display: none;
     }
 

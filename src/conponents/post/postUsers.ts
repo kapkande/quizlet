@@ -15,7 +15,6 @@ export async function postUsers(setData: React.Dispatch<React.SetStateAction<Ida
     const tocen = document.cookie.split(';').find(cookie => cookie.includes('tocen'))?.split('=')[1];
     if (!tocen || tocen == 'undefined') { return }
     const link: string = ` ${config.linkInBack}/auth/users`
-
     await axios.post(link, {}, {
         headers: {
             tocen: tocen
